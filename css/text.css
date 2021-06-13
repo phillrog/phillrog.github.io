@@ -25,13 +25,12 @@ font-weight: bold;
   margin: 0;
   padding: 0;
   line-height: 15pt;
-  font-weight: 300;
+  font-weight: 300 !important;
   letter-spacing: 2px;
   color: #fff;
-  color: #16151c;
-  color: rgba(63, 61, 60, .71);
+  color: #f58664;
   display: block;
-  font-size: .67em;
+  font-size: 1.5rem !important;
   padding-top: 0
 }
 
