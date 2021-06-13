@@ -1,0 +1,20 @@
+.certification {
+    margin-top: 13px;
+  margin-left: 20px;
+  display: flex;
+}
+.certification .icon {
+  margin-right: 15px;
+  text-align: center;
+}
+
+.certification .text {
+  width: 69%;
+  padding-top: 4px;
+  padding-right: 10%;
+  font-size: smaller;
+}
+
+.certification .text a:hover{
+	text-decoration: underline;
+}
