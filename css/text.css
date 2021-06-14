@@ -49,3 +49,12 @@ font-weight: bold;
   margin-bottom: 20px;
   color: #3f3d3c
 }
+
+.cargo {
+  color: #f58664;  
+  font-weight: 600;
+}
+
+.empresa {
+  color: #4b86b4;
+}
