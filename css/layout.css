@@ -7,7 +7,7 @@ body {
 }
 
 body>main {
-  margin: 0 15%;
+  margin: 35px 15%;
   min-width: 800px;
   background-color: #eeeeee;
   display: flex;
