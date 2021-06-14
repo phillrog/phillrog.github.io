@@ -18,3 +18,7 @@
   
   overflow-wrap: break-word;
 }
+
+.contact a:hover {
+  text-decoration: underline;
+}
