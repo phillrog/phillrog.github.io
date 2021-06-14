@@ -2,6 +2,7 @@
   margin-top: 13px;
   margin-left: 20px;
   display: flex;
+  max-width: 95%;
 }
 
 .contact .icon {
@@ -12,5 +13,8 @@
 .contact .text {
   width: 69%;
   padding-top: 4px;
-  padding-right: 10%
+  padding-right: 10%;
+  font-size: 0.9rem;
+  
+  overflow-wrap: break-word;
 }
