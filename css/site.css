@@ -12,8 +12,8 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 300px;
-  height: 260px;
+  width: 30px;
+  height: 30px;
   opacity: 0;
   background: #fff;
   border-radius: 20px;
@@ -26,8 +26,8 @@
 
 .box.open {
   opacity: 1;
-  width: 380px;
-  height: 600px;
+  width: 32vw;
+  height: 84vh;
   bottom: 80px;
   transform: none;
 }
