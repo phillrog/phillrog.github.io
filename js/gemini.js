@@ -109,8 +109,8 @@ var gemini = (() => {
     }
     async function initChat() {
         try {
-			const genAI = new GoogleGenAI({ apiKey: getApiKey()});
-			const model = await genAI.generateContent({
+			const genAI = new GoogleGenerativeAI(getApiKey());
+			const model = await genAI.getGenerativeModel({
 				model: currentModel,
 				systemInstruction
 			});
