@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 import { marked } from "https://esm.run/marked";    
   
 let chat;
-let currentModel = "gemini-2.0-flash";
+let currentModel = "gemini-1.5-flash";
 let historico = [];
 let systemInstruction = `
 Você é o "Phill", o assistente virtual inteligente do currículo de Phillipe Roger Souza. 
