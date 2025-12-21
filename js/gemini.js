@@ -112,7 +112,7 @@ var gemini = (() => {
         if (key) {
             localStorage.setItem("GEMINI_API_KEY", key);
         }
-        return btoa(key);
+        return atob(key);
     }
 	
     async function initChat() {
