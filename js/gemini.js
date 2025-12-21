@@ -91,7 +91,7 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
 - [https://github.com/phillrog/desafio-angular] - Aplicação Frontend desenvolvida em Angular para consumir e interagir com as APIs de Microsserviços BankMore.Services. Segurança e Identidade (Duende Identity Server).
 - [https://github.com/phillrog/desafio-ia] - Aplicação web feita com ReactJS, framework serverless, AWS (Cognito, Lambda, DynamoDB) quee possui com integração OPENAI um assistente virtualk que atua como agente AI que usa Function Calling (mecanismo que simula RAG) para buscar dados e registrar agendamentos.
 Também possui artigos no medium.com [https://medium.com/@phillrsouza].;
-
+`
 /* module pattern para encapsulamento das funções do client gemini */
 var gemini = (() => {
 
