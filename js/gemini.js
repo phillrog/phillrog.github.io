@@ -17,7 +17,7 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
     "resumo": "Desenvolvedor Full Stack Sênior (C#/.NET Core e Angular). Especialista em sistemas escaláveis, DDD, CQRS e Microsserviços.",
     "status": "Em busca de uma oportunidade. Início imediato"
   },
-  "apresentacao": "Atuou em projetos de alta complexidade em empresas como Sim Consultas, Consinco, FH, MAGIT, Wappa e Confitec. Tenho base sólida em modernização de legados e arquiteturas Cloud (Docker/Kubernetes). Recentemente, no Grupo Colorado, foquei em transformação digital e automação com .NET Core.",
+  "apresentacao": "Phillipe atuou em projetos de alta complexidade em empresas como Sim Consultas, Consinco, FH, MAGIT, Wappa e Confitec. Tenho base sólida em modernização de legados e arquiteturas Cloud (Docker/Kubernetes). Recentemente, no Grupo Colorado, foquei em transformação digital e automação com .NET Core.",
   "contato": {
     "localizacao": "Ribeirão Preto - SP",
     "email": "phillrog@hotmail.com",
@@ -90,6 +90,7 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
 - [https://github.com/phillrog/bankmore-desafio] - Aplciação Backend desenvolvida em C# com uma arquitetura de Microsserviços desacoplados. Adota fortemente os padrões de Domain-Driven Design (DDD) e CQRS que utiliza utilizando Apache Kafka e o Outbox Pattern (Kaflow) com o padrão SAGA. Segurança com ASP.NET Identity Core, JWT e Roles / Policies.
 - [https://github.com/phillrog/desafio-angular] - Aplicação Frontend desenvolvida em Angular para consumir e interagir com as APIs de Microsserviços BankMore.Services. Segurança e Identidade (Duende Identity Server).
 - [https://github.com/phillrog/desafio-ia] - Aplicação web feita com ReactJS, framework serverless, AWS (Cognito, Lambda, DynamoDB) quee possui com integração OPENAI um assistente virtualk que atua como agente AI que usa Function Calling (mecanismo que simula RAG) para buscar dados e registrar agendamentos.
+
 Também possui artigos no medium.com [https://medium.com/@phillrsouza].;
 `
 /* module pattern para encapsulamento das funções do client gemini */
