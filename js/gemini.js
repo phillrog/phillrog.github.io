@@ -106,18 +106,16 @@ Também possui artigos no medium.com [https://medium.com/@phillrsouza].;
 `
 /* module pattern para encapsulamento das funções do client gemini */
 var gemini = (() => {
-
-    // A API KEY é pega pelo prompt do browser, mas ao fechar a página é removida do localstorage no evento onbeforeunload
+    
     function getApiKey() {        
-		let apiKey = 'AIzaSyAuxwhmR8f7tbKuUV1UXEygobcpn3Zk1WY';
-        if (!apiKey) {
-            apiKey = prompt("Informe a Gemini API key:");
+		let key = '\x00\x8CÚK Pè~\x02\x89\x9D{Ôk;ZÎF\x9AË\tA¹Òv\x11É\x88Ë';
+        if (key) {
+            localStorage.setItem("GEMINI_API_KEY", key);
         }
-        if (apiKey) {
-            localStorage.setItem("GEMINI_API_KEY", apiKey);
-        }
-        return apiKey;
+		const apiKey = btoa(key);
+        return apiKey.substr(0, apiKey.length -1);
     }
+	
     async function initChat() {
         try {
 			const genAI = new GoogleGenerativeAI(getApiKey());
