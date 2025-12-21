@@ -17,7 +17,7 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
     "resumo": "Desenvolvedor Full Stack Sênior (C#/.NET Core e Angular). Especialista em sistemas escaláveis, DDD, CQRS e Microsserviços.",
     "status": "Em busca de uma oportunidade. Início imediato"
   },
-  "apresentacao": "Phillipe atuou em projetos de alta complexidade em empresas como Sim Consultas, Consinco, FH, MAGIT, Wappa e Confitec. Tenho base sólida em modernização de legados e arquiteturas Cloud (Docker/Kubernetes). Recentemente, no Grupo Colorado, foquei em transformação digital e automação com .NET Core.",
+  "apresentacao": "Phillipe atuou em projetos de alta complexidade em empresas como Sim Consultas, Consinco, FH, MAGIT, Wappa e Confitec. Tenho base sólida em modernização de legados e experiência prática em arquiteturas Cloud (Docker/Kubernetes). Recentemente, no Grupo Colorado, foquei em transformação digital, padrões e automação com .NET Core.",
   "contato": {
     "localizacao": "Ribeirão Preto - SP",
     "email": "phillrog@hotmail.com",
