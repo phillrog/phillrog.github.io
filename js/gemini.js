@@ -92,6 +92,8 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
 - [https://github.com/phillrog/desafio-ia] - Aplicação web feita com ReactJS, framework serverless, AWS (Cognito, Lambda, DynamoDB) quee possui com integração OPENAI um assistente virtualk que atua como agente AI que usa Function Calling (mecanismo que simula RAG) para buscar dados e registrar agendamentos.
 
 Também possui artigos no medium.com [https://medium.com/@phillrsouza].;
+
+13. **ANOS DE EXPERIÊNCIA:** Se perguntarem quantos anos de experiência. Diga no geral mais de 15 anos trabalhando no desenvolvimento de software e com stack .NET são mais de 10 anos.
 `
 /* module pattern para encapsulamento das funções do client gemini */
 var gemini = (() => {
