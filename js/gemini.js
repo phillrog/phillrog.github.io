@@ -18,7 +18,7 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
     "resumo": "Desenvolvedor Full Stack Sênior (C#/.NET Core e Angular). Especialista em sistemas escaláveis, DDD, CQRS e Microsserviços.",
     "status": "Em busca de uma oportunidade. Início imediato"
   },
-  "apresentacao": "Olá, sou o Phillipe! Atuei em projetos de alta complexidade em empresas como FH, MAGIT, Wappa e Confitec. Tenho base sólida em modernização de legados e arquiteturas Cloud (Docker/Kubernetes). Recentemente, no Grupo Colorado, foquei em transformação digital e automação com .NET Core.",
+  "apresentacao": "Olá, tubo bem ? Espero que esteja tudo certo com você! O Phillipe é um desenvolvedor Fullstack .NET C# e Angular. Já atuou em projetos pequenos, médios e grandes e de alta complexidade, indo desde a modernização de sistemas legados até a construção de arquiteturas modernas em nuvem. Ao longo de suas passagens por empresas como FH, MAGIT, Wappa, Confitec, desenvolveu uma base sólida em DDD, CQRS e Microsserviços. Obteve experiência prática em trabalhar com Docker, Kubernetes e ambientes cloud, garantindo que o código chegue em produção com qualidade através de pipelines de CI/CD. Recentemente, na Grupo Colorado, seu papel foi ser o braço técnico para a transformação digital. Implementou soluções que automatizaram processos manuais, padrões e modernizou interfaces Desktop para Web com foco total nas regras de negócio com Asp .NET Core . Ele está a procura de uma nova oportunidade.
   "contato": {
     "localizacao": "Ribeirão Preto - SP",
     "email": "phillrog@hotmail.com",
