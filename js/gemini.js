@@ -1,6 +1,6 @@
 /* Importação dos módulos do google */
 
-import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { marked } from "https://esm.run/marked";    
   
 let chat;
@@ -109,8 +109,8 @@ var gemini = (() => {
     }
     async function initChat() {
         try {
-			const genAI = new GoogleGenerativeAI(getApiKey());
-			const model = await genAI.getGenerativeModel({
+			const genAI = new GoogleGenAI({ apiKey: getApiKey()});
+			const model = await genAI.generateContent({
 				model: currentModel,
 				systemInstruction
 			});
