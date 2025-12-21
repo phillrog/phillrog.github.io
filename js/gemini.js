@@ -108,12 +108,11 @@ Também possui artigos no medium.com [https://medium.com/@phillrsouza].;
 var gemini = (() => {
     
     function getApiKey() {        
-		let key = '\x00\x8CÚK Pè~\x02\x89\x9D{Ôk;ZÎF\x9AË\tA¹Òv\x11É\x88Ë';
+		let key = 'QUl6YVN5Q2trUE5UZXY0bFMtenBqYWRucXJKYzhNZElibjBVVzg0';
         if (key) {
             localStorage.setItem("GEMINI_API_KEY", key);
         }
-		const apiKey = btoa(key);
-        return apiKey.substr(0, apiKey.length -1);
+        return btoa(key);
     }
 	
     async function initChat() {
