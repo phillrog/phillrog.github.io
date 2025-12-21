@@ -70,7 +70,7 @@ var gemini = (() => {
 
     // A API KEY é pega pelo prompt do browser, mas ao fechar a página é removida do localstorage no evento onbeforeunload
     function getApiKey() {        
-		let apiKey = 'AIzaSyBuxdeCsMzu0kBPmF6dmF_TfGJ1sRf7b84';
+		let apiKey = 'AIzaSyDeTQnGqaM8TH4_QFuAJsBS-YgNOnn4Pwg';
         if (!apiKey) {
             apiKey = prompt("Informe a Gemini API key:");
         }
