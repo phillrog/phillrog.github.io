@@ -1,6 +1,6 @@
 /* Importação dos módulos do google */
 
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { marked } from "https://esm.run/marked";    
   
 let chat;
