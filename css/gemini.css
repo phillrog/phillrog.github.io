@@ -51612,7 +51612,7 @@ div.ayx div.ayv {
     }
     50% {
         /* Torna-se branco */
-        --gm3-sys-color-on-surface-variant: #ffffff;
+        --gm3-sys-color-on-surface-variant: var(--gm3-sys-color-primary,#0b57d0);
         /* Adiciona um leve brilho (glow) opcional para dar mais "vida" */
         filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
     }

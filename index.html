@@ -11,6 +11,9 @@
     <script src="https://unpkg.com/framer-motion@11.11.11/dist/framer-motion.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/gemini.css" rel="stylesheet"> 
+	<link rel="stylesheet" href="css/custom.css">
+	<link href="css/site.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@300;400;600&display=swap');
         
@@ -415,8 +418,8 @@
                                         { cargo: "Analista de Sistemas Sênior", periodo: "Ago 2021 - Jul 2024", empresa: "Confitec ( São Paulo - SP )", desc: "Executei o ciclo de desenvolvimento, alternando entre a manutenção e a evolução de novas features para produtos essenciais (Projur, iRisk Portal e Aplicativo). Atuação direta com o cliente e a gestão para diagnóstico e solução de problemas de negócio urgentes, assegurando a estabilidade e a satisfação do cliente. Implementei e configurei pipelines CI/CD para o monolito IIS e definia padrões de código através de Code Reviews e Pair Programming. Fui o desenvolvedor-chave no Projeto Inovador de 2024 (1º Lugar). Atuação em arquitetura baseada em CQRS e DDD." },
                                         { cargo: "Analista de Sistemas .NET", periodo: "Abr 2021 - Ago 2021", empresa: "Wappa Brasil ( São Paulo - SP )", desc: "Atuação como desenvolvedor em ambiente de microsserviços e multi-cloud (AWS/GCP), focado em sustentação, bugs e desenvolvimento de features em módulos de alto volume de tráfego. Proficiência em ferramentas de infraestrutura, utilizando AWS, Cloud Functions e APIs Google para funcionalidades do app. Otimização do diagnóstico de incidentes via AWS CloudWatch e Jaeger." },
                                         { cargo: "Desenvolvedor PL 4", periodo: "Out 2020 - Mar 2021", empresa: "MAGIT ( Ribeirão Preto - SP )", desc: "Desenvolvimento do Módulo Financeiro do cliente Rodonaves, utilizando Asp.Net Core, WEB API, REST, RabbitMQ, Angular 7, e Material Design. A arquitetura dos sistemas mesclava Onion e N camadas, implementando conceitos de DDD. Desenvolvimento e manutenção de portais e APIs do cliente MyCap." }
-                                    ].map((exp, idx) => (
-                                        <div key={idx} className="mb-2">
+                                    ].map((exp, idx, array) => (
+                                        <div key={idx} className={`mb-2 ${idx !== array.length - 1 ? 'border-b border-gray-300' : 'pb-2'}`}>
                                             <div className="flex justify-between items-baseline">
                                                 <h4 className="cargo-title"># {exp.cargo}</h4>
                                                 <span className="subheadline uppercase">{exp.periodo}</span>
@@ -442,6 +445,74 @@
             );
         };
 
+        const ChatBot = () => {            
+            const openChatBox = (e) => {
+                if (window.openChatBox) {
+                    window.openChatBox(e);
+                } 
+            };
+
+            return (
+                <React.Fragment>
+                    {/* O Box do Chat */}
+                    <div className="box" id="box">
+                        <div className="title-header">
+                            <span className="status">Online agora</span>
+                            <div style={{ fontSize: '18px', marginTop: '5px' }}>
+                                <i className="fa fa-user-circle" style={{ color: '#2563eb' }}></i>
+                                <strong> Phill</strong>
+                            </div>
+                            <span style={{ fontSize: '12px', color: '#6b7280', fontWeight: 'normal' }}>
+                                Assistente virtual inteligente
+                            </span>
+                        </div>
+
+                        <div id="chat-messages"></div>
+
+                        <div className="chat-footer">
+                            <input type="text" id="user-input" placeholder="Pergunte sobre minha experiência..." />
+                            <button id="enviar-button" className="btn-enviar">Conversar com Phill</button>
+
+                            <div id="api-duration" style={{ fontSize: '9px', color: '#ccc', textAlign: 'center', marginTop: '8px' }}></div>
+                            <select id="model-select" style={{ display: 'none' }}></select>
+                            <pre id="usage-metadata" style={{ display: 'none' }}></pre>
+                        </div>
+                    </div>
+
+                    {/* O Botão Flutuante (Estilo Gemini) */}
+                    <div
+                        className="Zmxtcf e5IPTd"
+                        style={{
+                            position: 'fixed',
+                            right: '36px',
+                            bottom: '36px',
+                            cursor: 'pointer',
+                            zIndex: 9999 // Garante que fique acima de tudo
+                        }}
+                        onClick={openChatBox}
+                    >
+                        <div className="VOYwb wUn25c">
+                            <div className="lWI5Pb"></div>
+                        </div>
+                        <span data-is-tooltip-wrapper="true">
+                            <button title="Click aqui para conversar com o Phill" className="VYBDae-JX-I VYBDae-JX-I-ql-ay5-ays XyWBof">
+                                <span className="OiePBf-zPjgPe VYBDae-JX-UHGRz"></span>
+                                <span className="bHC-Q"></span>
+                                <span aria-hidden="true" className="VYBDae-JX-ank-Rtc0Jf">
+                                    <span className="notranslate bzc-ank" aria-hidden="true">
+                                        <svg focusable="false" viewBox="0 -960 960 960" height="28" width="28" className="EiVpKc aoH">
+                                            <path d="M480-80q2,0 2-2q0-82 31-154t85-126t126-85t154-31q2,0 2-2t-2-2q-82,0-154-31T598-598T513-724T482-878q0-2-2-2t-2,2q0,82-31,154T362-598T236-513T82-482q-2,0-2,2t2,2q82,0 154,31t126,85t85,126T478-82q0,2 2,2Z"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <div className="VYBDae-JX-ano"></div>
+                            </button>
+                        </span>
+                    </div>
+                </React.Fragment>
+            );
+        };
+
         const App = () => {
             const [loading, setLoading] = useState(true);
 
@@ -450,7 +521,10 @@
                     {loading ? (
                         <SplashScreen key="splash" onComplete={() => setLoading(false)} />
                     ) : (
-                        <ResumeContent key="resume" />
+                        <>
+                            <ResumeContent key="resume" />
+                            <ChatBot />
+                        </>
                     )}
                 </AnimatePresence>
             );
@@ -459,5 +533,8 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script type="module" src="js/gemini.js" defer></script>    
+    <script src="js/box.js" defer></script>
 </body>
 </html>
