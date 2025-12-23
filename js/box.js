@@ -27,7 +27,7 @@ function openChatBox(e) {
   }
   
 window.addEventListener('click', function(e) {
-  const box = $("#box");
+  const box = $("#box.a");
   const elee5IPTd = $('.e5IPTd');
   const eleVOYwb = $('.VOYwb');
   const elelWI5Pb = $('.lWI5Pb');

@@ -256,3 +256,5 @@ window.onload = () => {
 window.onbeforeunload = () => {
     localStorage.removeItem("GEMINI_API_KEY");
 };
+
+window.gemini = gemini;
