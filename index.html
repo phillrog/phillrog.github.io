@@ -515,6 +515,34 @@
 
         const App = () => {
             const [loading, setLoading] = useState(true);
+            
+            useEffect(() => {
+                // Só executa quando o loading terminar
+                if (!loading) {
+                    const loadScripts = async () => {
+                        // 1. Carrega o jQuery primeiro
+                        const jq = document.createElement("script");
+                        jq.src = "https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js";
+                        jq.async = false;
+                        document.body.appendChild(jq);
+
+                        jq.onload = () => {
+                            // 2. Carrega o Gemini (como módulo)
+                            const gemini = document.createElement("script");
+                            gemini.src = "js/gemini.js";
+                            gemini.type = "module";
+                            document.body.appendChild(gemini);
+
+                            // 3. Carrega o Box
+                            const box = document.createElement("script");
+                            box.src = "js/box.js";
+                            document.body.appendChild(box);
+                        };
+                    };
+
+                    loadScripts();
+                }
+            }, [loading]);
 
             return (
                 <AnimatePresence mode="wait">
@@ -533,8 +561,6 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
-    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-    <script type="module" src="js/gemini.js" defer></script>    
-    <script src="js/box.js" defer></script>
+    
 </body>
 </html>
