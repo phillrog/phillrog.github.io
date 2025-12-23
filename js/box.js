@@ -37,7 +37,7 @@ window.addEventListener('click', function(e) {
 
   // Se o box estiver aberto E o clique NÃO for dentro do box E NÃO for no botão que abre
   if (box.hasClass('open') && 
-      !box.contains(e.target) && 
+      !$.contains(box, e.target) && 
       (!btnAbrir || !btnAbrir.contains(e.target))) {
     
     box.removeClass("open");
