@@ -1,796 +1,437 @@
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta charset="UTF-8">    
-	<title>Currículo</title>
-    
-	<link href="css/gemini.css" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/custom.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-	<style type="text/css">
-		/* Copyright 2014-present Evernote Corporation. All rights reserved. */
-		@keyframes caretBlink {
-			from {
-				opacity: 1.0;
-			}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHILLIPE ROGER SOUZA - Fullstack Developer .NET</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@11.11.11/dist/framer-motion.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@300;400;600&display=swap');
+        
+        * { box-sizing: border-box; }
+        body { background-color: #000507; color: #fff; font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; margin: 0; padding: 0; overflow-x: hidden; }
+        
+        .page-container { 
+            background: white; 
+            width: 100%;
+            max-width: 210mm; 
+            margin: 0 auto; 
+            padding: 20px;
+            min-height: 100vh;
+            color: #000;
+        }
 
-			to {
-				opacity: 0.0;
-			}
-		}
+        @media print { 
+            .no-print { display: none !important; }
+            body { background: white !important; overflow: visible !important; }
+            .page-container { 
+                width: 210mm; 
+                height: 297mm; 
+                padding: 10mm 12mm; 
+                margin: 0;
+                box-shadow: none;
+                display: block !important;
+            }
+            .print-grid { display: grid !important; grid-template-columns: repeat(12, minmax(0, 1fr)) !important; gap: 1rem !important; }
+            .print-col-4 { grid-column: span 4 / span 4 !important; }
+            .print-col-8 { grid-column: span 8 / span 8 !important; }
+            section { page-break-inside: avoid; }
+        }
 
-		@keyframes rotateSpinner {
-			from {
-				transform: rotate(0deg);
-			}
+        .ats-section-title { border-bottom: 2px solid #000000; color: #000000; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; padding-bottom: 0.1rem; font-size: 0.72rem; }
+        .cargo-title { font-weight: 700; color: #000000; font-size: 0.82rem; }
+        .empresa-name { color: #000000; font-weight: 700; font-size: 0.74rem; text-decoration: underline; }
+        .subheadline { color: #374151; font-size: 0.68rem; font-weight: 700; }
+        .info-text { font-size: 0.68rem; line-height: 1.3; text-align: justify; color: #1a1a1a; margin-bottom: 0.3rem; }
+        .link-style { color: #000000; text-decoration: underline; }
+        .sidebar-text { font-size: 0.75rem; line-height: 1.4; }
+        .sidebar-cert-text { font-size: 0.72rem; line-height: 1.3; }
 
-			to {
-				transform: rotate(360deg);
-			}
-		}
+        .light-rays-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        
+        .white-out {
+            position: fixed;
+            inset: 0;
+            background: white;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.5s ease-in;
+        }
+        .white-out.active { opacity: 1; }
 
-		#text-tool-caret {
-			animation-name: caretBlink;
-			animation-iteration-count: infinite;
-			animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
-			animation-duration: 1s;
-		}
+        /* Efeito Shiny Text */
+        .shiny-text {
+            color: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(120deg, transparent 30%, rgba(255, 215, 100, 0.8) 50%, transparent 70%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 4s linear infinite;
+            display: block;
+        }
 
-		#en-markup-loading-spinner {
-			position: absolute;
-			top: calc(50% - 16px);
-			left: calc(50% - 16px);
-			width: 32px;
-			height: 32px;
-		}
+        @keyframes shine {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
 
-		#en-markup-loading-spinner img {
-			position: relative;
-			top: 0px;
-			left: 0px;
-			animation-name: rotateSpinner;
-			animation-duration: 0.6s;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
-		}
-		.fa, .material-icons {
-			font-size: 14px;
-		}
-	</style>
-	<style type="text/css">
-		/* Copyright 2014-present Evernote Corporation. All rights reserved. */
-		.skitchToastBoxContainer {
-			position: absolute;
-			width: 100%;
-			text-align: center;
-			top: 30px;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			pointer-events: none;
-		}
+        .dot-anim {
+            display: inline-block;
+            animation: dotPulse 1.5s infinite;
+            opacity: 0;
+        }
+        .dot-anim:nth-child(2) { animation-delay: 0.2s; }
+        .dot-anim:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.2; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-2px); }
+        }
 
-		.skitchToastBox {
-			width: 200px;
-			height: 16px;
-			padding: 12px;
-			background-color: rgba(47, 55, 61, 0.95);
-			border-radius: 4px;
-			color: white;
-			cursor: default;
-			font-size: 10pt;
-			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.32);
-			font-family: 'Soleil', Helvetica, Arial, sans-serif;
-			border: 2px rgba(255, 255, 255, 0.38) solid;
-		}
-
-		.lang-zh-cn .skitchToastBox {
-			font-family: '微软雅黑', 'Microsoft YaHei', SimSun,
-				'&#x30E1;&#x30A4;&#x30EA;&#x30AA;', Meiryo, 'MS PGothic', 'Soleil',
-				Helvetica, Arial, sans-serif;
-		}
-
-		.lang-ja-jp .skitchToastBox {
-			font-family: '&#x30E1;&#x30A4;&#x30EA;&#x30AA;', Meiryo, 'MS PGothic',
-				'微软雅黑', 'Microsoft YaHei', SimSun, 'Soleil', Helvetica, Arial,
-				sans-serif;
-		}
-
-		.skitchToast {
-			padding-left: 20px;
-			padding-right: 20px;
-			display: inline-block;
-			height: 10px;
-			color: #f1f5f8;
-			text-align: center;
-		}
-
-		.skitchVisible {
-			/* Don't remove this class it's a hack used by the Evernote Clipper */
-		}
-	</style>
-	
-	<style type="text/css">
-		/* Copyright 2019-present Evernote Corporation. All rights reserved. */
-
-		#en-markup-disabled {
-			position: fixed;
-			z-index: 9999;
-			width: 100%;
-			height: 100%;
-			top: 0px;
-			left: 0px;
-			cursor: default;
-			-webkit-user-select: none;
-		}
-
-		#en-markup-alert-container {
-			position: absolute;
-			z-index: 9999;
-			width: 450px;
-			left: calc(50% - 225px);
-			top: calc(50% - 85px);
-			background-color: white;
-			box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.35);
-			-webkit-user-select: none;
-		}
-
-		#en-markup-alert-container .cell-1 {
-			position: relative;
-			height: 110px;
-			width: 105px;
-			float: left;
-			text-align: center;			
-			background-position: 65% 50%;
-			background-repeat: no-repeat;
-		}
-
-		#en-markup-alert-container .cell-2 {
-			position: relative;
-			float: left;
-			width: 345px;
-			margin-top: 29px;
-			margin-bottom: 20px;
-		}
-
-		#en-markup-alert-container .cell-2 .cell-2-title {
-			margin-bottom: 5px;
-			padding-right: 30px;
-			font-size: 12pt;
-			font-family: Tahoma, Arial;
-		}
-
-		#en-markup-alert-container .cell-2 .cell-2-message {
-			padding-right: 30px;
-			font-size: 9.5pt;
-			font-family: Tahoma, Arial;
-		}
-
-		#en-markup-alert-container .cell-3 {
-			position: relative;
-			width: 450px;
-			height: 60px;
-			float: left;
-			background-color: rgb(240, 240, 240);
-		}
-
-		#en-markup-alert-container .cell-3 button {
-			position: absolute;
-			top: 12px;
-			right: 15px;
-			width: 110px;
-			height: 36px;
-		}
-
-		#en-markup-alert-container .cell-3 button.alt-button {
-			position: absolute;
-			top: 12px;
-			right: 140px;
-			width: 110px;
-			height: 36px;
-		}
-
-		.align-baseline {
-			align-items: baseline;
-		}
-
-		p.info {
-			text-align: justify;
-		}
-	</style>
-	
-	<link href="css/site.css" rel="stylesheet">
+        .splash-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background: rgba(255, 215, 100, 0.7);
+            margin-left: 8px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+    </style>
 </head>
-
 <body>
-	<main>
-		<div class="leftCol m_box">
-			<section class="contacts">
-				<div class="section-headline">
-					Contato
-				</div>				
+    <div id="root"></div>
 
-				<div class="contact align-baseline">
-					<div class="icon">
-						<i class="material-icons">location_city</i>
-					</div>
-					<div class="text">
-						<ul>
-							<li>Ribeirão Preto - SP</li>
-						</ul>
-					</div>
-				</div>				
+    <script type="text/babel">
+        const { useRef, useEffect, useState } = React;
+        const { motion, AnimatePresence } = window.Motion || window.FramerMotion;
 
-				<div class="contact align-baseline">
-					<div class="icon">
-						<i class="material-icons">email</i>
-					</div>
-					<div class="text">
-						<a href="mailto:phillrog@hotmail.com">phillrog@hotmail.com</a>
-					</div>
-				</div>
+        const LoadingDots = () => (
+            <span className="inline-flex ml-1">
+                <span className="dot-anim">.</span><span className="dot-anim">.</span><span className="dot-anim">.</span>
+            </span>
+        );
 
-				<div class="contact align-baseline">
-					<div class="icon">
-						<i class="fa fa-github"></i>
-					</div>
-					<div class="text">
-						<a href="https://github.com/phillrog" target="_blank">
-							<span>https://github.com/phillrog</span>
-						</a>
-					</div>
-				</div>
+        const TextTypePrompt = ({ messages, onComplete }) => {
+            const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+            const [currentText, setCurrentText] = useState("");
+            const [isDeleting, setIsDeleting] = useState(false);
+            const [typingSpeed, setTypingSpeed] = useState(100);
 
-				<div class="contact align-baseline">
-					<div class="icon">
-						<i class="fa fa-linkedin"></i>
-					</div>
-					<div class="text">
-						<a href="https://www.linkedin.com/in/phillrog" target="_blank">
-							<span>https://www.linkedin.com/in/phillrog</span>
-						</a>
-					</div>
-				</div>
-			</section>
+            useEffect(() => {
+                const handleTyping = () => {
+                    const fullText = messages[currentMessageIndex];
+                    if (!isDeleting) {
+                        setCurrentText(fullText.substring(0, currentText.length + 1));
+                        setTypingSpeed(100);
+                        if (currentText === fullText) {
+                            if (currentMessageIndex === messages.length - 1) {
+                                setTimeout(onComplete, 1500);
+                            } else {
+                                setTimeout(() => setIsDeleting(true), 2000);
+                            }
+                        }
+                    } else {
+                        setCurrentText(fullText.substring(0, currentText.length - 1));
+                        setTypingSpeed(20);
+                        if (currentText === "") {
+                            setIsDeleting(false);
+                            setCurrentMessageIndex(prev => prev + 1);
+                        }
+                    }
+                };
+                const timer = setTimeout(handleTyping, typingSpeed);
+                return () => clearTimeout(timer);
+            }, [currentText, isDeleting, currentMessageIndex, messages]);
 
-			<section class="skills">
-				<div class="section-headline">
-					Habilidades Comportamentais
-				</div>
+            return (
+                <div className="text-center px-4 z-10">
+                    <div className="text-amber-200/40 text-[10px] md:text-xs mb-4 tracking-[0.3em] uppercase flex items-center justify-center font-mono">
+                        System.Initialize <LoadingDots />
+                    </div>
+                    <div className="min-h-[80px] flex items-center justify-center font-mono">
+                        <div className="text-xl md:text-4xl font-light tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,215,100,0.2)]">
+                            <span className="opacity-30 mr-4">|</span>
+                            {currentText}
+                            <span className="splash-cursor"></span>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
 
-				<div class="skill">
-					<span>Trabalho em parceria / Orientação a valor</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+        const WebGLLightRays = ({ exposure }) => {
+            const containerRef = useRef(null);
+            const exposureRef = useRef(1.0);
 
-				<div class="skill">
-					<span>Resiliência técnica / Visão de dono</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-				<div class="skill">
-					<span>Referência técnica / Comunicação assertiva</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-				<div class="skill">
-					<span>Pensamento crítico</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-			</section>
-			<section class="skills">
-				<div class="section-headline">
-					Competências
-				</div>
+            useEffect(() => { exposureRef.current = exposure; }, [exposure]);
 
-				<div class="skill">
-					<span>.NET Core / C#</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+            useEffect(() => {
+                const container = containerRef.current;
+                const canvas = document.createElement('canvas');
+                container.appendChild(canvas);
+                const gl = canvas.getContext('webgl', { alpha: true });
+                if (!gl) return;
 
-				<div class="skill">
-					<span>Angular / JS / TS</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                const vs = `attribute vec2 pos; varying vec2 vUv; void main(){ vUv=pos*0.5+0.5; gl_Position=vec4(pos,0.,1.); }`;
+                const fs = `
+                    precision highp float;
+                    uniform float iTime;
+                    uniform vec2 iRes;
+                    uniform float iExposure;
+                    varying vec2 vUv;
+                    void main(){
+                        vec2 uv = gl_FragCoord.xy / iRes.xy;
+                        vec2 coord = uv * 2.0 - 1.0;
+                        coord.x *= iRes.x / iRes.y;
+                        vec2 rayPos = vec2(0.0, 1.3);
+                        vec2 dir = normalize(coord - rayPos);
+                        float angle = atan(dir.y, dir.x);
+                        float rays = 0.0;
+                        for(float i = 1.0; i <= 10.0; i++){
+                            rays += pow(0.5 + 0.5 * sin(angle * i * 2.5 + iTime * 0.6 * (0.5 + i * 0.15)), 12.0) * (1.0/i);
+                        }
+                        float dist = length(coord - rayPos);
+                        float falloff = smoothstep(3.0, 0.0, dist);
+                        vec3 raysColor = vec3(0.9, 0.75, 0.45) * iExposure;
+                        vec3 color = mix(vec3(0.0, 0.04, 0.06), raysColor, rays * falloff * iExposure);
+                        if(iExposure > 1.5) color += (iExposure - 1.5) * 0.5;
+                        gl_FragColor = vec4(color, 1.0);
+                    }
+                `;
 
-				<div class="skill">
-					<span>Microsserviços / REST / Webservices</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                const program = gl.createProgram();
+                const createS = (t, s) => { const sh = gl.createShader(t); gl.shaderSource(sh, s); gl.compileShader(sh); return sh; };
+                gl.attachShader(program, createS(gl.VERTEX_SHADER, vs));
+                gl.attachShader(program, createS(gl.FRAGMENT_SHADER, fs));
+                gl.linkProgram(program);
+                gl.useProgram(program);
 
+                const vertices = new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]);
+                gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+                gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+                const pos = gl.getAttribLocation(program, "pos");
+                gl.enableVertexAttribArray(pos);
+                gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
 
+                const iTime = gl.getUniformLocation(program, "iTime");
+                const iRes = gl.getUniformLocation(program, "iRes");
+                const iExp = gl.getUniformLocation(program, "iExposure");
 
-				<div class="skill">
-					<span>HTML / CSS/ javascript</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-
-				<div class="skill">
-					<span>CQRS / DDD / Clean</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-
-				<div class="skill">
-					<span>SOLID / GRASP / POO</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-
-				<div class="skill">
-					<span>Azure Devops Server (TFS)</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-
-				<div class="skill">
-					<span>MSSQL / PL-SQL / MongoDb</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-
-				<div class="skill">
-					<span>Docker / Kubernetes</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-
-				<div class="skill">
-					<span>Multi Cloud & DevOps</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-				<div class="skill">
-					<span>Git / SVN / TFS</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-				<div class="skill">
-					<span>Kanban / Scrum</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-			</section>
-
-
-			<section class="certifications">
-				<div class="section-headline">
-					Certificações
-				</div>
-
-				<ul>
-					<li class="skill">
-						<dt>desenvolvedor.<span style="color: #14bdee">io</span></dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificado/bc1e2e2f-ccdb-45b1-9212-06a0d31c8b66" target="_blank">
-									<span>Fullstack Developer</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificado/12d4f27c-4f5c-47d2-bcb2-d5ec4d370a68" target="_blank">
-									<span>Formação ASP.NET Core Expert</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificado/a2aac0a0-d858-4a36-98a8-29d54aeb51f9" target="_blank">
-									<span>Formação Front-End Angular Expert</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificados/b61783a7-7362-4d79-96c9-00b09a15c9ae" target="_blank">
-									<span>Formação Arquiteto de Software</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificados/84f7f8bd-1d79-4294-8159-b29032cffc67" target="_blank">
-									<span>Formação ASP.NET MVC 5 Expert</span>
-								</a>
-							</div>
-						</div>
-
-					</li>
-					<li class="skill">
-						<dt><img src="img/logo-udemy.png" alt="Udemy" width="60" height="24"></dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://ude.my/UC-49254688-1a17-4ccf-85ea-c953e31b9ab5" target="_blank">
-									<span>DevOps - Mão na massa!</span>
-								</a>
-							</div>
-						</div>
-						
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://ude.my/UC-3b876b1e-22dc-43fc-a22e-5c17bf51bbd1/" target="_blank">
-									<span>Clean Architecture Essencial - ASP .NET Core com C#</span>
-								</a>
-							</div>
-						</div>
-						
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://ude.my/UC-1b9c4a42-f4e2-4cd7-b39f-c6b15dc53b03" target="_blank">
-									<span>C# - Aplicando Princípios SOLID na prática</span>
-								</a>
-							</div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://www.udemy.com/certificate/UC-6c7d7f69-e26e-4f71-8615-10bb0ddd83a0/" target="_blank">
-									<span>Orquestração de Containers com Kubernetes</span>
-								</a>
-							</div>
-						</div>
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://ude.my/UC-83cbad82-6cca-4ac0-8ed0-2fb5d5832555" target="_blank">
-									<span>Docker para Desenvolvedores (com Docker Swarm e Kubernetes)</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://www.udemy.com/certificate/UC-7f05dc3e-6abc-4028-9280-742ea6a442c1/" target="_blank">
-									<span>DevOps Ninja: Docker, Kubernetes e Rancher</span>
-								</a>
-							</div>
-						</div>
-
-					</li>
-					<li class="skill">
-						<dt><img src="img/logo-gago3-branca.png" width="60" height="24" alt="gaGO.io" id="logo"></dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://1drv.ms/b/s!AupKNLsJeRIjiFJh1foq-uYMjEnd?e=55ErX3" target="_blank">
-									<span>Cloud Native .NET</span>
-								</a>								
-								
-							</div>							
-						</div>
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>				
-							<div class="text">
-								
-								<a href="https://bit.ly/3K8PnYz" target="_blank">
-									<span>RabbitMQ para Aplicações .NET</span>
-								</a>
-								
-							</div>
-						</div>					
-					</li>
-					<li class="skill">
-						<dt>The Cloud Bootcamp</dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/1W-KzEDZNJZ-KzIpjnr79NDoTtS4_O38B/view?usp=sharing" target="_blank">
-									<span>AI Cloud - IA com MultiCloud & DevOps</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/1H8nGGvjmrCZDg35tDjCZWmnun_0GWBZT/view?usp=sharing" target="_blank">
-									<span>Google Cloud Platform</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/15B9J43OyiqJYdVW7O-igmI6bBEH8-nHk/view?usp=sharing" target="_blank">
-									<span>Oracle Cloud Infrastructure (OCI)</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/1OdoNWhupnJveUkS1licYhdxZaZnVzAWN/view?usp=sharing" target="_blank">
-									<span>Microsoft Azure</span>
-								</a>
-							</div>
-						</div>
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/1E_oc0063l29BjtAVD5EKRYtkD7aM8T3U/view" target="_blank">
-									<span>Amazon Web Services (AWS)</span>
-								</a>
-							</div>
-						</div>
-					</li>
-					<li class="skill">
-						<dt>FUNDAÇÃO FAT</dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://sgce.fundacaofat.org.br/sgce/validar/C08D9107" target="_blank">
-									<span>IA- GOOGLE CLOUD</span>
-								</a>
-							</div>
-						</div>
-
-					</li>					
-				</ul>
-			</section>
-		</div>
-		<div class="rightCol">
-
-			<section>
-				<div class="title">
-					<h2>Phillipe Roger Souza</h2>
-					<div>Fullstack Developer .NET</div>
-				</div>
-			</section>
-            			
-			<section class="experience">
-				<div class="section-headline">Perfil Profissional</div>
-
-				<div class="block">
-					<div class="headline">
-						<span class="cargo"># Resumo - </span> </span><span class="empresa">Em busca de um novo desafio.</span>
-						<div class="subheadline">Início imediato</div>
-					</div>
-					<p class="info"  >
-						Desenvolvedor Full Stack Sênior (C#/.NET Core e Angular), focado na entrega de soluções de software de ponta a ponta. Experiência profunda na construção de sistemas escaláveis e resilientes, aplicando Domain-Driven Design (DDD), CQRS e Microsserviços de forma estratégica. Atuação em projetos de grande impacto, como sustentação, transformação digital e inovação (incluindo contribuições para projetos premiados). Experiência prática com DevOps, CI/CD, containerização (Docker, Kubernetes) e implantação em ambientes Cloud.
-					</p>
-				</div>
-
-			<section class="experience">
-				<div class="section-headline">Histórico Profissional</div>
-
-				<div class="block">
-					<div class="headline">
-						<span class="cargo"># Analista de Sistemas Sênior - </span><span class="empresa">Grupo Colorado ( Orlândia - SP )</span>
-						<div class="subheadline">Agosto de 2024 - Novembro de 2025</div>
-					</div>
-					<p class="info">
-						Implementei soluções inovadoras como uma aplicação web para agendamento de ações automatizadas (relatórios, notificações). Essa arquitetura, utilizando Hangfire, reduziu significativamente o trabalho manual. Atuação na sustentação e evolução de sistemas complexos (incluindo legados como Genexus, sistemas de leitura de balança de bag e outras aplicações VB.NET). Desenvolvimento fullstack de soluções para o ERP e relatórios no QLIK, com foco em regras do negócio (Agrícola, Equipamentos,  Mobile B2B, Pessoas, dentre outras áreas), aplicando Clean Architecture, princípios SOLID e boas práticas de desenvolvimento.
-					</p>
-				</div>
+                const render = (t) => {
+                    gl.uniform1f(iTime, t * 0.001);
+                    gl.uniform2f(iRes, canvas.width, canvas.height);
+                    gl.uniform1f(iExp, exposureRef.current);
+                    gl.drawArrays(gl.TRIANGLES, 0, 6);
+                    requestAnimationFrame(render);
+                };
                 
-				<div class="block">
-					<div class="headline">
-						<span class="cargo"># Analista de Sistemas Sênior - </span><span class="empresa">Confitec ( São Paulo - SP ) </span>
-						<div class="subheadline">Agosto de 2021 - Julho de 2024</div>
-					</div>
-					<p class="info">
-						Executei o ciclo de desenvolvimento, alternando entre a manutenção e a evolução de novas features para produtos essenciais (Projur, iRisk Portal e Aplicativo).
-						Atuação direta com o cliente e a gestão para diagnóstico e solução de problemas de negócio urgentes, assegurando a estabilidade e a satisfação do cliente.
+                const resize = () => {
+                    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+                    gl.viewport(0, 0, canvas.width, canvas.height);
+                };
+                window.addEventListener('resize', resize);
+                resize();
+                requestAnimationFrame(render);
+                return () => window.removeEventListener('resize', resize);
+            }, []);
 
-						Implementei e configurei pipelines CI/CD para o monolito IIS e definia padrões de código através de Code Reviews e Pair Programming, elevando a qualidade técnica da equipe.
+            return <div ref={containerRef} className="light-rays-container" />;
+        };
 
-						Fui o desenvolvedor-chave no Projeto Inovador de 2024 (1º Lugar) e responsável por interagir ativamente com Analistas de Negócio para garantir o alinhamento de requisitos.
+        const SplashScreen = ({ onComplete }) => {
+            const [exposure, setExposure] = useState(1.0);
+            
+            const messages = [
+                "Olá, seja bem-vindo!",
+            ];
 
-						Atuação em arquitetura baseada em CQRS e conceitos de DDD, utilizando essa separação de leitura/escrita para garantir a manutenção simplificada e a estabilidade de sistemas complexos.
-					</p>
-				</div>
+            const handleComplete = () => {
+                let val = 1.0;
+                const interval = setInterval(() => {
+                    val += 0.2;
+                    setExposure(val);
+                    if (val > 8) {
+                        clearInterval(interval);
+                        setTimeout(onComplete, 500);
+                    }
+                }, 30);
+            };
 
-				<div class="block">
-					<div class="headline">
-						<span class="cargo"># Analista de Sistemas .NET - </span><span class="empresa">Wappa Brasil ( São Paulo - SP ) </span>
-						<div class="subheadline">Abril de 2021 - Agosto de 2021</div>
-					</div>
-					<p class="info">
-						Atuação como desenvolvedor em ambiente de microsserviços e multi-cloud (AWS/GCP), focado em sustentação, bugs e desenvolvimento de features em módulos de alto volume de tráfego. Proficiência em ferramentas de infraestrutura, utilizando AWS, Cloud Functions (cache/processamento) e APIs Google para funcionalidades do app. Otimização do diagnóstico de incidentes via AWS CloudWatch e Jaeger (Tracing de requisições). Realizei ajustes e atualizações diretas nos módulos passageiro, motorista, notificação, portal administração, portal backoffice, relatório e no aplicativo mobile android.
-					</p>
-				</div>
+            return (
+                <div className="fixed inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-[#000507] z-[100] no-print">
+                    <div className={`white-out ${exposure > 5 ? 'active' : ''}`}></div>
+                    <WebGLLightRays exposure={exposure} />
+                    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_20%,transparent_0%,rgba(0,5,7,0.7)_90%)] z-[5]"></div>
+                    
+                    <TextTypePrompt messages={messages} onComplete={handleComplete} />
 
-				<div class="block">
-					<div class="headline"><span class="cargo"># Desenvolvedor PL 4 - </span><span class="empresa">Murilo
-							Amaru Gomes - MAGIT Soluções e Terceirização de TI ( Ribeirão Preto - SP ) </span>
-						<div class="subheadline">Outubro de 2020 - Março de 2021</div>
-					</div>
-					<p class="info">
-						Desenvolvimento do Módulo Financeiro do cliente Rodonaves, utilizando Asp.Net Core, WEB API, REST, RabbitMQ, Angular 7, e Material Design. A arquitetura dos sistemas mesclava Onion e N camadas, implementando conceitos de DDD.
+                    {/* Canto Inferior Direito: Assinatura Shiny */}
+                    <div className="absolute bottom-10 right-10 z-20 text-right pointer-events-none font-mono">
+                        <div className="text-xs md:text-sm tracking-wider space-y-1">
+                            <span className="shiny-text font-bold">Currículo de Phillipe Roger Souza</span>
+                            <span className="shiny-text opacity-80">Fullstack .NET Developer</span>
+                            <span className="shiny-text opacity-60 text-[10px]">Angular Expert</span>
+                        </div>
+                    </div>
 
-						Desenvolvimento e manutenção de portais e APIs do cliente MyCap, utilizando Asp Net MVC, Asp.Net Core, WEB API, REST Angular 7, Node, e Windows Service.
+                    {/* Decorativo Esquerdo */}
+                    <div className="absolute bottom-10 left-10 z-10 pointer-events-none hidden md:block font-mono">
+                        <div className="text-[9px] text-amber-200/20 tracking-[0.4em] uppercase border-l border-amber-200/20 pl-4 py-2">
+                            Deployment: Stable <br/>
+                            Core: .NET 8.0 <br/>
+                            Environment: Production
+                        </div>
+                    </div>
+                </div>
+            );
+        };
 
-						Trabalho em projetos com arquitetura monolítica, Onion, MVC e microserviços, aplicando princípios SOLID e boas práticas de programação.
-					</p>
-				</div>
-				
-			</section>
+        const ResumeContent = () => {
+            const skills = [".NET Core / C#", "Angular / JS / TS", "Microsserviços / REST", "HTML / CSS / javascript", "CQRS / DDD / Clean", "SOLID / GRASP / POO", "Azure Devops Server", "MSSQL / PL-SQL / MongoDb", "Docker / Kubernetes", "Multi Cloud & DevOps", "Git / SVN / TFS", "Kanban / Scrum"];
 
-			<section class="education">
-				<div class="section-headline">Formação Acadêmica</div>
-				<div class="block">
-					<div class="headline"><span class="cargo"># Análise e Desenvolvimento de Sistemas</span></div>
-					<div class="subheadline">
-						Janeiro de 2013 - Junho de 2015 - <span class="empresa">Centro Universitário Moura
-							Lacerda</span>, Ribeirão Preto, SP
-					</div>
-				</div>
-			</section>
-		</div>
+            return (
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1.2 }}
+                    className="min-h-screen bg-gray-200 md:py-4"
+                >
+                    <div className="page-container shadow-2xl">
+                        <header className="text-center border-b-2 border-black pb-1 mb-2">
+                            <h1 className="text-xl font-black text-black tracking-tighter uppercase">PHILLIPE ROGER SOUZA</h1>
+                            <h2 className="text-[11px] font-bold text-black mb-1 uppercase tracking-widest">Fullstack Developer .NET</h2>
+                            <div className="flex flex-wrap justify-center gap-x-3 text-[9px] font-bold text-black">
+                                <span className="flex items-center gap-0.5"><i className="material-icons text-[12px]">location_on</i> Ribeirão Preto - SP</span>
+                                <a href="mailto:phillrog@hotmail.com" className="link-style flex items-center gap-0.5"><i className="material-icons text-[12px]">email</i> phillrog@hotmail.com</a>
+                                <a href="https://github.com/phillrog" target="_blank" className="link-style flex items-center gap-0.5"><i className="fa fa-github"></i> github.com/phillrog</a>
+                                <a href="https://www.linkedin.com/in/phillrog" target="_blank" className="link-style flex items-center gap-0.5"><i className="fa fa-linkedin"></i> linkedin.com/in/phillrog</a>
+                            </div>
+                        </header>
 
-	</main>
+                        <div className="print-grid grid grid-cols-1 md:grid-cols-12 gap-4">
+                            <aside className="print-col-4 md:col-span-4 space-y-4">
+                                <section>
+                                    <h3 className="ats-section-title">Habilidades Comportamentais</h3>
+                                    <ul className="sidebar-text space-y-0.5 text-black font-semibold">
+                                        <li>• Trabalho em parceria</li>
+                                        <li>• Orientação a valor</li>
+                                        <li>• Resiliência técnica</li>
+                                        <li>• Visão de dono</li>
+                                        <li>• Referência técnica</li>
+                                        <li>• Comunicação assertiva</li>
+                                        <li>• Pensamento crítico</li>
+                                    </ul>
+                                </section>
 
-	<div class="box" id="box">
-	  <div class="title-header">
-		<span class="status">Online agora</span>
-		<div style="font-size: 18px; margin-top: 5px;">
-		  <i class="fa fa-user-circle" style="color: #2563eb;"></i> 
-		  <strong>Phill</strong>
-		</div>
-		<span style="font-size: 12px; color: #6b7280; font-weight: normal;">Assistente virtual inteligente</span>
-	  </div>
+                                <section>
+                                    <h3 className="ats-section-title">Competências</h3>
+                                    <div className="flex flex-wrap gap-1">
+                                        {skills.map(skill => (
+                                            <span key={skill} className="bg-gray-100 text-black px-1.5 py-0.5 rounded text-[8px] font-bold border border-black uppercase">{skill}</span>
+                                        ))}
+                                    </div>
+                                </section>
 
-	  <div id="chat-messages">
-		</div>
+                                <section>
+                                    <h3 className="ats-section-title">Certificações</h3>
+                                    <div className="sidebar-cert-text space-y-3">
+                                        <div>
+                                            <p className="font-black border-b border-gray-300 mb-0.5 uppercase">desenvolvedor.io</p>
+                                            <div className="flex flex-col gap-0.5">
+                                                <a href="https://desenvolvedor.io/certificado/bc1e2e2f-ccdb-45b1-9212-06a0d31c8b66" target="_blank" className="link-style">Fullstack Developer</a>
+                                                <a href="https://desenvolvedor.io/certificado/12d4f27c-4f5c-47d2-bcb2-d5ec4d370a68" target="_blank" className="link-style">ASP.NET Core Expert</a>
+                                                <a href="https://desenvolvedor.io/certificado/a2aac0a0-d858-4a36-98a8-29d54aeb51f9" target="_blank" className="link-style">Angular Expert</a>
+                                                <a href="https://desenvolvedor.io/certificados/b61783a7-7362-4d79-96c9-00b09a15c9ae" target="_blank" className="link-style">Arquiteto de Software</a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p className="font-black border-b border-gray-300 mb-0.5 uppercase">The Cloud Bootcamp</p>
+                                            <div className="flex flex-col gap-0.5">
+                                                <a href="https://drive.google.com/file/d/1W-KzEDZNJZ-KzIpjnr79NDoTtS4_O38B/view?usp=sharing" target="_blank" className="link-style">AI Cloud - MultiCloud/DevOps</a>
+                                                <a href="https://drive.google.com/file/d/1H8nGGvjmrCZDg35tDjCZWmnun_0GWBZT/view?usp=sharing" target="_blank" className="link-style">Google Cloud Platform</a>
+                                                <a href="https://drive.google.com/file/d/15B9J43OyiqJYdVW7O-igmI6bBEH8-nHk/view?usp=sharing" target="_blank" className="link-style">Oracle Cloud (OCI)</a>
+                                                <a href="https://drive.google.com/file/d/1OdoNWhupnJveUkS1licYhdxZaZnVzAWN/view?usp=sharing" target="_blank" className="link-style">Microsoft Azure</a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p className="font-black border-b border-gray-300 mb-0.5 uppercase">Fundação FAT / Udemy</p>
+                                            <div className="flex flex-col gap-0.5">
+                                                <a href="https://sgce.fundacaofat.org.br/sgce/validar/C08D9107" target="_blank" className="link-style">IA- GOOGLE CLOUD</a>
+                                                <a href="https://ude.my/UC-3b876b1e-22dc-43fc-a22e-5c17bf51bbd1/" target="_blank" className="link-style">Clean Architecture</a>
+                                                <a href="https://bit.ly/3K8PnYz" target="_blank" className="link-style">RabbitMQ para .NET</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </aside>
 
-	  <div class="chat-footer">
-		<input type="text" id="user-input" placeholder="Pergunte sobre minha experiência...">
-		<button id="enviar-button" class="btn-enviar">Conversar com Phill</button>
-		
-		<div id="api-duration" style="font-size: 9px; color: #ccc; text-align: center; margin-top: 8px;"></div>
-		<select id="model-select" style="display:none"></select> <pre id="usage-metadata" style="display:none"></pre>
-	  </div>
-	</div>
-    
-	<div class="Zmxtcf e5IPTd" jscontroller="DgIhze" style="
-    
-		position: fixed;
-		right: 36px;
-		bottom: 36px;
-		
-		cursor: pointer;" jsaction="JIbuQc:hvFYob;dduq4c:PrY1nf;BIkEBc:foYxRb;LkyfYb:EFVbM;JXMate:Ego55c;qzfiwe:vFwaKf;oqYoCb:.CLIENT;Db3vsd:.CLIENT" jslog="194062; u014N:xr6bB,cOuCgd,Kr2w4b; dYFj7e:true; 66:WzRd">
-	  <div class="VOYwb wUn25c">
-		<div class="lWI5Pb"></div>
-	  </div>
-	  <span data-is-tooltip-wrapper="true">
-		<button title="Click aqui para conversar com o Phill" onclick="openChatBox(event)" class="VYBDae-JX-I VYBDae-JX-I-ql-ay5-ays XyWBof  " jscontroller="PIVayb" jsaction="click:h5M12e; clickmod:h5M12e;pointerdown:FEiYhc;pointerup:mF5Elf;pointerenter:EX0mI;pointerleave:vpvbp;pointercancel:xyn4sd;contextmenu:xexox;focus:h06R8; blur:zjh6rb;mlnRJb:fLiPzd;" data-idom-class="XyWBof" data-use-native-focus-logic="true" aria-label="Pedir para Gemini" data-tooltip-enabled="true" data-tooltip-id="tt-c28" jslog="204391;track:click,hover;u014N:cOuCgd,ZmdkE;">
-		  <span class="OiePBf-zPjgPe VYBDae-JX-UHGRz"></span>
-		  <span class="bHC-Q" jscontroller="LBaJxb" jsname="m9ZlFb"></span>
-		  <span jsname="S5tZuc" aria-hidden="true" class="VYBDae-JX-ank-Rtc0Jf">
-			<span class="notranslate bzc-ank" aria-hidden="true">
-			  <svg focusable="false" viewBox="0 -960 960 960" height="28" width="28" class="EiVpKc aoH">
-				<path d="M480-80q2,0 2-2q0-82 31-154t85-126t126-85t154-31q2,0 2-2t-2-2q-82,0-154-31T598-598T513-724T482-878q0-2-2-2t-2,2q0,82-31,154T362-598T236-513T82-482q-2,0-2,2t2,2q82,0 154,31t126,85t85,126T478-82q0,2 2,2Z"></path>
-			  </svg>
-			</span>
-		  </span>
-		  <div class="VYBDae-JX-ano"></div>
-		</button>
+                            <main className="print-col-8 md:col-span-8 space-y-3">
+                                <section>
+                                    <h3 className="ats-section-title">Perfil Profissional</h3>
+                                    <div className="mb-0.5 text-[9px] font-bold uppercase"># Resumo - Em busca de um novo desafio. Início imediato.</div>
+                                    <p className="info-text">
+                                        Desenvolvedor Full Stack Sênior (C#/.NET Core e Angular), focado na entrega de soluções de software de ponta a ponta. Experiência profunda na construção de sistemas escaláveis e resilientes, aplicando Domain-Driven Design (DDD), CQRS e Microsserviços de forma estratégica. Atuação em projetos de grande impacto, como sustentação, transformação digital e inovação (incluindo contribuições para projetos premiados). Experiência prática com DevOps, CI/CD, containerização (Docker, Kubernetes) e implantação em ambientes Cloud.
+                                    </p>
+                                </section>
 
-	  </span>
-	</div>
-    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-    <script type="module" src="js/gemini.js" defer></script>	
-    <script src="js/box.js" defer></script>
+                                <section>
+                                    <h3 className="ats-section-title">Histórico Profissional</h3>
+                                    {[
+                                        { cargo: "Analista de Sistemas Sênior", periodo: "Ago 2024 - Nov 2025", empresa: "Grupo Colorado ( Orlândia - SP )", desc: "Implementei soluções inovadoras como uma aplicação web para agendamento de ações automatizadas (relatórios, notificações). Essa arquitetura, utilizando Hangfire, reduziu significativamente o trabalho manual. Atuação na sustentação e evolução de sistemas complexos (incluindo legados como Genexus, sistemas de leitura de balança de bag e outras aplicações VB.NET). Desenvolvimento fullstack de soluções para o ERP e relatórios no QLIK, com foco em regras do negócio (Agrícola, Equipamentos, Mobile B2B, Pessoas, dentre outras áreas), aplicando Clean Architecture, princípios SOLID e boas práticas de desenvolvimento." },
+                                        { cargo: "Analista de Sistemas Sênior", periodo: "Ago 2021 - Jul 2024", empresa: "Confitec ( São Paulo - SP )", desc: "Executei o ciclo de desenvolvimento, alternando entre a manutenção e a evolução de novas features para produtos essenciais (Projur, iRisk Portal e Aplicativo). Atuação direta com o cliente e a gestão para diagnóstico e solução de problemas de negócio urgentes, assegurando a estabilidade e a satisfação do cliente. Implementei e configurei pipelines CI/CD para o monolito IIS e definia padrões de código através de Code Reviews e Pair Programming. Fui o desenvolvedor-chave no Projeto Inovador de 2024 (1º Lugar). Atuação em arquitetura baseada em CQRS e DDD." },
+                                        { cargo: "Analista de Sistemas .NET", periodo: "Abr 2021 - Ago 2021", empresa: "Wappa Brasil ( São Paulo - SP )", desc: "Atuação como desenvolvedor em ambiente de microsserviços e multi-cloud (AWS/GCP), focado em sustentação, bugs e desenvolvimento de features em módulos de alto volume de tráfego. Proficiência em ferramentas de infraestrutura, utilizando AWS, Cloud Functions e APIs Google para funcionalidades do app. Otimização do diagnóstico de incidentes via AWS CloudWatch e Jaeger." },
+                                        { cargo: "Desenvolvedor PL 4", periodo: "Out 2020 - Mar 2021", empresa: "MAGIT ( Ribeirão Preto - SP )", desc: "Desenvolvimento do Módulo Financeiro do cliente Rodonaves, utilizando Asp.Net Core, WEB API, REST, RabbitMQ, Angular 7, e Material Design. A arquitetura dos sistemas mesclava Onion e N camadas, implementando conceitos de DDD. Desenvolvimento e manutenção de portais e APIs do cliente MyCap." }
+                                    ].map((exp, idx) => (
+                                        <div key={idx} className="mb-2">
+                                            <div className="flex justify-between items-baseline">
+                                                <h4 className="cargo-title"># {exp.cargo}</h4>
+                                                <span className="subheadline uppercase">{exp.periodo}</span>
+                                            </div>
+                                            <div className="empresa-name">{exp.empresa}</div>
+                                            <p className="info-text">{exp.desc}</p>
+                                        </div>
+                                    ))}
+                                </section>
+
+                                <section>
+                                    <h3 className="ats-section-title">Formação Acadêmica</h3>
+                                    <div className="flex justify-between items-baseline">
+                                        <h4 className="cargo-title"># Análise e Desenvolvimento de Sistemas</h4>
+                                        <span className="subheadline">2013 - 2015</span>
+                                    </div>
+                                    <p className="subheadline">Centro Universitário Moura Lacerda</p>
+                                </section>
+                            </main>
+                        </div>
+                    </div>
+                </motion.div>
+            );
+        };
+
+        const App = () => {
+            const [loading, setLoading] = useState(true);
+
+            return (
+                <AnimatePresence mode="wait">
+                    {loading ? (
+                        <SplashScreen key="splash" onComplete={() => setLoading(false)} />
+                    ) : (
+                        <ResumeContent key="resume" />
+                    )}
+                </AnimatePresence>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
