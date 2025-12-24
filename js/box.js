@@ -27,7 +27,7 @@ function openChatBox(e) {
   }
   
 window.addEventListener('click', function(e) {
-  const box = $("#box.a");
+
   const elee5IPTd = $('.e5IPTd');
   const eleVOYwb = $('.VOYwb');
   const elelWI5Pb = $('.lWI5Pb');
@@ -36,11 +36,11 @@ window.addEventListener('click', function(e) {
   const btnAbrir = document.querySelector('button.VYBDae-JX-I'); // substitua pela classe/id do seu ícone de chat
 
   // Se o box estiver aberto E o clique NÃO for dentro do box E NÃO for no botão que abre
-  if (box.hasClass('open') && 
-      !$.contains(box, e.target) && 
+  if (box.classList.contains('open') && 
+      !box.contains(e.target) && 
       (!btnAbrir || !btnAbrir.contains(e.target))) {
     
-    box.removeClass("open");
+    box.classList.remove("open");
     elee5IPTd.removeClass(`e5IPTd-forcar-hover`);
     eleVOYwb.removeClass(`VOYwb-forcar-hover`);
     elelWI5Pb.removeClass(`lWI5Pb-forcar-hover`);
