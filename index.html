@@ -124,6 +124,16 @@
                 display: none !important;
             }
         }
+        /* Regra de Restauração para Desktop */
+        @media (min-width: 769px) and screen {
+        .box {
+            /* Em vez de 'none', voltamos para 'flex' que é o seu padrão do .box */
+            display: flex !important; 
+        }
+        .Zmxtcf {
+            display: block !important;
+        }
+        }
     </style>
 </head>
 <body>
@@ -472,7 +482,7 @@
             return (
                 <React.Fragment>
                     {/* O Box do Chat */}
-                    <div className="box" id="box">
+                    <div className="hidden md:flex box" id="box">
                         <div className="title-header">
                             <span className="status">Online agora</span>
                             <div style={{ fontSize: '18px', marginTop: '5px' }}>
@@ -498,7 +508,7 @@
 
                     {/* O Botão Flutuante (Estilo Gemini) */}
                     <div
-                        className="Zmxtcf e5IPTd"
+                        className="hidden md:flex Zmxtcf e5IPTd"
                         style={{
                             position: 'fixed',
                             right: '36px',
