@@ -111,6 +111,19 @@
         #box input{
             color: #000 !important;
         }
+        
+        /*Remove o assistente na hora de imprimir*/
+        @media print {
+            /* Esconde o box do chat, o botão flutuante e qualquer overlay */
+            #box, 
+            .box,
+            .Zmxtcf, 
+            .e5IPTd,
+            [title*="conversar com o Phill"],
+            button[aria-label="Pedir para Gemini"] {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
