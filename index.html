@@ -617,21 +617,23 @@
                             box.src = "js/box.js";
                             document.body.appendChild(box);
 
-                            setTimeout(() => {
-                            if (window.gemini) {
-                                window.gemini.initChat();
-                                
-                                const btn = document.getElementById("enviar-button");
-                                const input = document.getElementById("user-input");
-                                
-                                if (btn) btn.onclick = window.gemini.sendMessage;
-                                if (input) {
-                                    input.onkeypress = (e) => {
-                                        if (e.key === "Enter") window.gemini.sendMessage();
-                                    };
-                                }
-                            }
-                        }, 100);
+                            var limparIntervalo = setInterval(() => {
+                                                        if (window.gemini) {
+                                                            window.gemini.initChat();
+                                                            
+                                                            const btn = document.getElementById("enviar-button");
+                                                            const input = document.getElementById("user-input");
+                                                            
+                                                            if (btn) btn.onclick = window.gemini.sendMessage;
+                                                            if (input) {
+                                                                input.onkeypress = (e) => {
+                                                                    if (e.key === "Enter") window.gemini.sendMessage();
+                                                                };
+                                                            }
+                                                            clearInterval(limparIntervalo);
+                                                        }
+                                                    }, 1000);
+                            
                         };
                     };
 

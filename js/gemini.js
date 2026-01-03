@@ -208,6 +208,7 @@ Também possui artigos no medium.com [https://medium.com/@phillrsouza].;
 - Pensamento crítico: "Visão crítica para analisar processos, prever problemas e otimizar o sistema constantemente."
 `
 /* module pattern para encapsulamento das funções do client gemini */
+var iniciou = false;
 var gemini = (() => {
     
     function getApiKey() {        
@@ -219,6 +220,8 @@ var gemini = (() => {
     }
 	
     async function initChat() {
+        if (iniciou) return;
+        iniciou = true;
         try {
 			const genAI = new GoogleGenerativeAI(getApiKey());
 			const model = await genAI.getGenerativeModel({
