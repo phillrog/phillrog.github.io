@@ -11,50 +11,151 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
 
 ### DADOS DO CURRÍCULO (JSON):
 {
-  "nome": "Phillipe Roger Souza",
-  "profissao": "Fullstack Developer .NET",
-  "perfil_profissional": {
-    "resumo": "Desenvolvedor Full Stack Sênior (C#/.NET Core e Angular). Especialista em sistemas escaláveis, DDD, CQRS e Microsserviços.",
-    "status": "Em busca de uma oportunidade. Início imediato"
-  },
-  "apresentacao": "Phillipe atuou em projetos de alta complexidade em empresas como Sim Consultas, Consinco, FH, MAGIT, Wappa e Confitec. Tenho base sólida em modernização de legados e experiência prática em arquiteturas Cloud (Docker/Kubernetes). Recentemente, no Grupo Colorado, foquei em transformação digital, padrões e inovações com .NET Core.",
-  "contato": {
+  "informacoes_pessoais": {
+    "nome": "PHILLIPE ROGER SOUZA",
+    "cargo": "Fullstack Developer .NET",
     "localizacao": "Ribeirão Preto - SP",
-    "email": "phillrog@hotmail.com",
-    "github": "https://github.com/phillrog",
-    "linkedin": "https://www.linkedin.com/in/phillrog"
+    "contato": {
+      "email": "phillrog@hotmail.com",
+      "github": "https://github.com/phillrog",
+      "linkedin": "https://www.linkedin.com/in/phillrog"
+    }
   },
+  "perfil_profissional": "Desenvolvedor Full Stack Sênior (C#/.NET Core e Angular), focado na entrega de soluções de software de ponta a ponta. Experiência profunda na construção de sistemas escaláveis e resilientes, aplicando Domain-Driven Design (DDD), CQRS e Microsserviços de forma estratégica. Atuação em projetos de grande impacto, como sustentação, transformação digital e inovação (incluindo contribuições para projetos premiados). Experiência prática com DevOps, CI/CD, containerização (Docker, Kubernetes) e implantação em ambientes Cloud.",
   "competencias_tecnicas": [
-    ".NET Core / C#", "Angular / JS / TS", "Microsserviços", "CQRS / DDD / Clean Architecture", 
-    "SOLID / POO", "SQL Server / MongoDB", "Docker / Kubernetes", "Azure DevOps / CI/CD"
+    ".NET Core / C#",
+    "Angular / JS / TS",
+    "Microsserviços / REST",
+    "HTML / CSS / javascript",
+    "CQRS / DDD / Clean",
+    "SOLID / GRASP / POO",
+    "SQL SERVER / PL-SQL / MongoDb",
+    "Cloud Azure (App Services, Functions)",
+    "Azure DevOps / CI/CD",
+    "Docker / Kubernetes",
+    "Multi Cloud & DevOps",
+    "Git / SVN / TFS",
+    "Kanban / Scrum"
   ],
-  "experiencias": [
+  "historico_profissional": [
     {
+      "empresa": "Grupo Colorado",
+      "local": "Orlândia - SP",
       "cargo": "Analista de Sistemas Sênior",
-      "empresa": "Grupo Colorado ( Orlândia - SP )",
-      "periodo": "Agosto de 2024 - Novembro de 2025",
-      "atividades": "Automação com Hangfire, sustentação de ERP e modernização de interfaces Desktop para Web usando Asp.NET Core."
+      "periodo": "AGO 2024 - NOV 2025",
+      "descricao": "Iniciativa e Modernização: Atuou com alta autonomia técnica na identificação de débitos técnicos e melhorias arquiteturais. Migração de ERP para .NET 8 e implementação de Hangfire.",
+      "impacto": "Otimização de KPIs e relatórios Qlik; entrega de 225+ tarefas focadas em padronização e estabilidade."
     },
     {
+      "empresa": "Confitec",
+      "local": "São Paulo - SP",
       "cargo": "Analista de Sistemas Sênior",
-      "empresa": "Confitec ( São Paulo - SP )",
-      "periodo": "Agosto de 2021 - Julho de 2024",
-      "atividades": "Arquitetura CQRS/DDD, pipelines CI/CD e Vencedor do Projeto Inovador de 2024."
+      "periodo": "AGO 2021 - JUL 2024",
+      "descricao": "Vencedor do Concurso de Inovação 2024. Integração com IA Generativa (Azure Speech to Text e OpenAI GPT).",
+      "impacto": "Elevação da maturidade técnica da equipe via Code Reviews e mentoria em CQRS/DDD."
     },
     {
+      "empresa": "Wappa Brasil",
+      "local": "São Paulo - SP",
       "cargo": "Analista de Sistemas .NET",
-      "empresa": "Wappa Brasil ( São Paulo - SP )",
-      "periodo": "Abril de 2021 - Agosto de 2021",
-      "atividades": "Microsserviços em AWS/GCP e telemetria com CloudWatch/Jaeger."
+      "periodo": "ABR 2021 - AGO 2021",
+      "descricao": "Sustentação crítica em ecossistema multicloud. Uso de AWS CloudWatch e Jaeger para tracing.",
+      "impacto": "Experiência em microsserviços e APIs Google sob alta volumetria."
     },
     {
+      "empresa": "MAGIT",
+      "local": "Ribeirão Preto - SP",
       "cargo": "Desenvolvedor PL 4",
-      "empresa": "MAGIT Soluções",
-      "periodo": "Outubro de 2020 - Março de 2021",
-      "atividades": "Módulo Financeiro Rodonaves e portais MyCap usando .NET Core e RabbitMQ."
+      "periodo": "OUT 2020 - MAR 2021",
+      "descricao": "Desenvolvimento para o portal MyCap (Home Broker). APIs REST escaláveis com Async/Await.",
+      "impacto": "Evolução de sistemas legados para o setor financeiro."
+    },
+    {
+      "empresa": "FH_",
+      "local": "Curitiba - PR",
+      "cargo": "Application Developer",
+      "periodo": "FEV 2019 - SET 2020",
+      "descricao": "Modernização de sistemas com RabbitMQ, MassTransit e Onion/Clean Architecture.",
+      "impacto": "Padronização técnica com testes unitários e deploy em Kubernetes."
+    },
+    {
+      "empresa": "Consinco",
+      "local": "Ribeirão Preto - SP",
+      "cargo": "Programador",
+      "periodo": "NOV 2016 - JAN 2019",
+      "descricao": "Modernização de portais ASP.NET para Angular 2+. Mentoria de desenvolvedores juniores.",
+      "impacto": "Desenvolvimento de módulos críticos para o setor varejista."
+    },
+    {
+      "empresa": "Sim>Consultas",
+      "local": "Ribeirão Preto - SP",
+      "cargo": "Analista de Desenvolvimento de Sistemas",
+      "periodo": "JAN 2014 - NOV 2016",
+      "descricao": "Engenharia de dados com Web Scraping resiliente.",
+      "impacto": "Implementação de auto-healing e rotação de IPs para SLA 24x7."
+    },
+    {
+      "empresa": "Duas Vias, SimSoft, Sabtech e Marques & Alves",
+      "local": "Diversos",
+      "cargo": "Desenvolvedor Delphi e Auxiliar",
+      "periodo": "JUN 2008 - DEZ 2013",
+      "descricao": "Manutenção de sistemas ERP e CMS em Delphi e VB.",
+      "impacto": "Atendimento a pequenos negócios e sistemas de gestão."
     }
   ],
-  "formacao": "Análise e Desenvolvimento de Sistemas - Centro Universitário Moura Lacerda (2015)"
+  "projetos_ia_inovacao": [
+    {
+      "nome": "Assistente 'O Que é Isso?' (Computer Vision)",
+      "link": "https://github.com/phillrog/assistente-o-que-e-isso-ia",
+      "tecnologias": ["YOLOv8", "Google Gemini", "gTTS"],
+      "descricao": "Plataforma educativa multimodal com foco em privacidade local."
+    },
+    {
+      "nome": "IA Resume Expert (Prompt Engineering)",
+      "link": "https://github.com/phillrog/assistente-de-curriculo",
+      "tecnologias": ["Few-Shot Prompting", "XML Delimiters", "Método STAR"],
+      "descricao": "Sistema de mentoria de carreira para otimização de currículos para ATS."
+    },
+    {
+      "nome": "ProNail: IA Conversacional (RAG & Serverless)",
+      "link": "https://github.com/phillrog/desafio-ia",
+      "tecnologias": ["AWS Lambda", "DynamoDB", "Cognito", "Function Calling"],
+      "descricao": "Ecossistema serverless para agendamentos via chat em tempo real."
+    }
+  ],
+  "formacao": {
+    "curso": "Análise e Desenvolvimento de Sistemas",
+    "instituicao": "Centro Universitário Moura Lacerda",
+    "periodo": "2013 - 2015"
+  },
+  "certificacoes": {
+    "desenvolvedor_io": [
+      "Fullstack Developer",
+      "ASP.NET Core Expert",
+      "Angular Expert",
+      "Arquiteto de Software",
+      "ASP.NET MVC 5 Expert"
+    ],
+    "udemy": [
+      "DevOps - Mão na massa!",
+      "Clean Architecture Essencial",
+      "Princípios SOLID na prática",
+      "Kubernetes Orquestração",
+      "Docker para Desenvolvedores"
+    ],
+    "cloud_bootcamp": [
+      "AI Cloud - MultiCloud/DevOps",
+      "Google Cloud Platform",
+      "Oracle Cloud (OCI)",
+      "Microsoft Azure",
+      "AWS Cloud"
+    ],
+    "especializados": [
+      "gaGO.io: Cloud Native",
+      "gaGO.io: RabbitMQ",
+      "FUNDAÇÃO FAT: IA Google"
+    ]
+  }
 }
 
 ### REGRAS DE COMPORTAMENTO E RESPOSTAS ESPECÍFICAS:
@@ -90,6 +191,8 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
 - [https://github.com/phillrog/bankmore-desafio] - Aplciação Backend desenvolvida em C# com uma arquitetura de Microsserviços desacoplados. Adota fortemente os padrões de Domain-Driven Design (DDD) e CQRS que utiliza utilizando Apache Kafka e o Outbox Pattern (Kaflow) com o padrão SAGA. Segurança com ASP.NET Identity Core, JWT e Roles / Policies.
 - [https://github.com/phillrog/desafio-angular] - Aplicação Frontend desenvolvida em Angular para consumir e interagir com as APIs de Microsserviços BankMore.Services. Segurança e Identidade (Duende Identity Server).
 - [https://github.com/phillrog/desafio-ia] - Aplicação web feita com ReactJS, framework serverless, AWS (Cognito, Lambda, DynamoDB) quee possui com integração OPENAI um assistente virtualk que atua como agente AI que usa Function Calling (mecanismo que simula RAG) para buscar dados e registrar agendamentos.
+- [https://github.com/phillrog/assistente-de-curriculo] - Assistente inteligente desenvolvido para ajudar candidatos a otimizarem seus currículos para vagas específicas, utilizando o poder da IA (Gemini 2.0 Flash e Gemini 3 Flash (Preview)).
+- [https://github.com/phillrog/assistente-o-que-e-isso-ia] - Este projeto é uma plataforma educativa interativa que utiliza Inteligência Artificial e Visão Computacional para transformar o ambiente ao redor em uma sala de aula de idiomas.
 
 Também possui artigos no medium.com [https://medium.com/@phillrsouza].;
 
