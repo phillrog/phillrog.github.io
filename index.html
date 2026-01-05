@@ -64,22 +64,22 @@
                 width: 210mm; 
                 height: auto !important; 
                 min-height: 0 !important;
-                padding: 6.6mm 4mm !important; 
+                padding: 10.6mm 4mm !important; 
                 margin: 0 !important;
                 box-shadow: none !important;
                 display: block !important;
                 background: white;
             }
             
-            header h1 { font-size: 24pt !important; }
-            header h2 { font-size: 10pt !important; margin: 5px 0 !important; }
-            header div { font-size: 9pt !important; }
-            h3 { font-size: 9pt !important; margin-top: 15px !important; margin-bottom: 5px !important; }
-            p { font-size: 8pt !important; line-height: 1.4 !important; }
-            .info-text { font-size: 9.5pt !important; line-height: 1.35 !important; }
-            span.bg-white { font-size: 8.5pt !important; padding: 2px 5px !important; margin-bottom: 3px !important; display: inline-block !important; }
+            header h1 { font-size: 20pt !important; }
+            header h2 { font-size: 9pt !important; margin: 5px 0 !important; }
+            header div { font-size: 8pt !important; }
+            h3 { font-size: 8pt !important; margin-top: 15px !important; margin-bottom: 5px !important; }
+            p { font-size: 7pt !important; line-height: 1.4 !important; }
+            .info-text { font-size: 8.5pt !important; line-height: 1.35 !important; }
+            span.bg-white { font-size: 7.5pt !important; padding: 2px 5px !important; margin-bottom: 3px !important; display: inline-block !important; }
             li { font-size: 8.5pt !important; }
-            .grid div section h3 { font-size: 10pt !important; }
+            .grid div section h3 { font-size: 9pt !important; }
             .grid div section div p { font-size: 7.5pt !important; }
             .grid div section div a { font-size: 8.5pt !important; }
             
@@ -240,7 +240,7 @@
 
         const SplashScreen = ({ onComplete }) => {
             const [exposure, setExposure] = useState(1.0);
-            const messages = ["Olá, seja bem-vindo!"];
+            const messages = ["Olá, seja bem-vindo(a)!"];
             const handleComplete = () => {
                 let val = 1.0;
                 const interval = setInterval(() => {
@@ -268,7 +268,7 @@
                     <div className="absolute bottom-10 left-10 z-10 pointer-events-none hidden md:block font-mono">
                         <div className="text-[9px] text-amber-200/20 tracking-[0.4em] uppercase border-l border-amber-200/20 pl-4 py-2">
                             Deployment: Stable <br/>
-                            Core: .NET 8.0 <br/>
+                            Core: .NET 9.0 <br/>
                             Environment: Production
                         </div>
                     </div>
@@ -307,7 +307,7 @@
                                     <h3 className="uppercase border-b border-black font-black text-[10px] mb-1">Competências Técnicas</h3>
                                     <div className="flex flex-wrap gap-1">
                                         {skills.map(skill => (
-                                            <span key={skill} className="bg-white text-black px-1 py-0 text-[9px] font-bold border border-gray-300 uppercase leading-none">{skill}</span>
+                                            <span key={skill} className="bg-white text-black px-1 py-0 text-[7px] font-bold border border-gray-300 uppercase leading-none">{skill}</span>
                                         ))}
                                     </div>
                                 </section>
