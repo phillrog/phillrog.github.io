@@ -40,67 +40,158 @@ Seu objetivo é ajudar recrutadores e interessados a conhecerem melhor a trajet�
   "historico_profissional": [
     {
       "empresa": "Grupo Colorado",
-      "local": "Orlândia - SP",
-      "cargo": "Analista de Sistemas Sênior",
+      "unidade": "Orlândia - SP",
+      "cargo": "# Analista de Sistemas Sênior",
       "periodo": "AGO 2024 - NOV 2025",
-      "descricao": "Iniciativa e Modernização: Atuou com alta autonomia técnica na identificação de débitos técnicos e melhorias arquiteturais. Migração de ERP para .NET 8 e implementação de Hangfire.",
-      "impacto": "Otimização de KPIs e relatórios Qlik; entrega de 225+ tarefas focadas em padronização e estabilidade."
+      "descricao_detalhada": "Atuou com alta autonomia técnica na identificação de débitos técnicos, documentações e proposição de melhorias arquiteturais. Propus e implementei a migração do ERP para .NET 8, liderando tecnicamente todo o processo de adaptação do código e garantindo a estabilidade da nova versão, além de implementar de forma proativa uma infraestrutura de agendamento com Hangfire, automatizando processos que antes eram manuais. Otimizei a extração de dados para indicadores estratégicos (KPIs) e relatórios Qlik, garantindo performance em módulos complexos (Agrícola/Balança). Criei PWA em Blazor para aprovação de requisições (processo interno de solicitação/aprovação compra de material) totalmente responsiva. Entreguei 225+ tarefas com foco em padronização, funcionalidades e estabilidade do ERP e sistemas legados.",
+      "tecnologias_utilizadas": [
+        "C#",
+        "ASP NET",
+        "Javascript",
+        ".NET 6/8",
+        "Blazor",
+        "SQL Server",
+        "Qlik",
+        "VB6",
+        "Genexus",
+        "SOLID",
+        "Clean Architecture"
+      ]
     },
     {
       "empresa": "Confitec",
-      "local": "São Paulo - SP",
-      "cargo": "Analista de Sistemas Sênior",
+      "unidade": "São Paulo - SP",
+      "cargo": "# Analista de Sistemas Sênior",
       "periodo": "AGO 2021 - JUL 2024",
-      "descricao": "Vencedor do Concurso de Inovação 2024. Integração com IA Generativa (Azure Speech to Text e OpenAI GPT).",
-      "impacto": "Elevação da maturidade técnica da equipe via Code Reviews e mentoria em CQRS/DDD."
+      "descricao_detalhada": "Venci o Concurso Interno de Inovação em 2024. Atuava na sustentação e desenvolvimento de produtos. Tive o primeiro contato prático com IA Generativa, atuando no projeto que fazia integração e uso de ferramentas de Azure Speech to Text e OpenAI (GPT) para resumos inteligentes. Desenvolvi e implementei um Webhook para integração em tempo real com a API da Digesto, automatizando a atualização de dados jurídicos no sistema de gestão de processos. Atuação direta com stakeholders e clientes para alinhamento técnico, refinamento de demandas em Sprints e suporte a incidentes críticos.",
+      "tecnologias_utilizadas": [
+        "C#",
+        ".NET Core 3",
+        ".NET 6",
+        "ASP NET",
+        "Angular",
+        "NodeJs",
+        "Typescript",
+        "Ionic",
+        "SOLID",
+        "Clean Architecture",
+        "conceitos DDD",
+        "CQRS",
+        "JWT",
+        "OAuth",
+        "Azure Devops Server"
+      ]
     },
     {
       "empresa": "Wappa Brasil",
-      "local": "São Paulo - SP",
-      "cargo": "Analista de Sistemas .NET",
+      "unidade": "São Paulo - SP",
+      "cargo": "# Analista de Sistemas .NET",
       "periodo": "ABR 2021 - AGO 2021",
-      "descricao": "Sustentação crítica em ecossistema multicloud. Uso de AWS CloudWatch e Jaeger para tracing.",
-      "impacto": "Experiência em microsserviços e APIs Google sob alta volumetria."
+      "descricao_detalhada": "Atuou na sustentação de aplicações relacionadas ao ramo de mobilidade, realizando a análise e resolução de bugs em módulos de alta complexidade como Passageiro, Motorista e Notificações. Análise de logs e tracing, garantindo a continuidade de serviços essenciais. Adquiri experiência prática em arquitetura de Microsserviços e integração com APIs Google sob alta volumetria de tráfego.",
+      "tecnologias_utilizadas": [
+        ".NET Core 3",
+        "Ecossistema de Microsserviços",
+        "Multi Cloud (GCP, AWS)",
+        "C#",
+        "ASP NET",
+        "Observabilidade",
+        "Android",
+        "Java",
+        "SQL Server",
+        "Postgres",
+        "MongoDB",
+        "AWS Lambda"
+      ]
     },
     {
       "empresa": "MAGIT",
-      "local": "Ribeirão Preto - SP",
-      "cargo": "Desenvolvedor PL 4",
+      "unidade": "Ribeirão Preto - SP",
+      "cargo": "# Desenvolvedor PL 4",
       "periodo": "OUT 2020 - MAR 2021",
-      "descricao": "Desenvolvimento para o portal MyCap (Home Broker). APIs REST escaláveis com Async/Await.",
-      "impacto": "Evolução de sistemas legados para o setor financeiro."
+      "descricao_detalhada": "Atuou no desenvolvimento e sustentação de soluções na aplicações de cliente do ramo de investimentos.",
+      "tecnologias_utilizadas": [
+        "C#",
+        ".NET Core 3",
+        "ASP NET",
+        "NodeJs",
+        "Typescript",
+        "APIs Rest",
+        "SOLID",
+        "Clean Architecture",
+        "Scrum"
+      ]
     },
     {
       "empresa": "FH_",
-      "local": "Curitiba - PR",
-      "cargo": "Application Developer",
+      "unidade": "Curitiba - PR",
+      "cargo": "# Application Developer",
       "periodo": "FEV 2019 - SET 2020",
-      "descricao": "Modernização de sistemas com RabbitMQ, MassTransit e Onion/Clean Architecture.",
-      "impacto": "Padronização técnica com testes unitários e deploy em Kubernetes."
+      "descricao_detalhada": "Atuava como Fullstack, participando da modernização de sistemas de uma transportadora. Implementei processos, mensageria com RabbitMQ (MassTransit) e arquiteturas baseadas em Mediator e Onion/Clean Architecture. Contribuí com testes unitários e configurações de Helm/Kubernetes para deploy. Obtive experiência em ambientes multitenant e alta disponibilidade.",
+      "tecnologias_utilizadas": [
+        "C#",
+        ".NET Core 3",
+        "Angular",
+        "NodeJs",
+        "Typescript",
+        "TDD",
+        "DDD",
+        "SOLID",
+        "SonarQube",
+        "Clean Architecture",
+        "Microsserviços",
+        "Kubernetes",
+        "RabbitMQ",
+        "Docker",
+        "Scrum"
+      ]
     },
     {
       "empresa": "Consinco",
-      "local": "Ribeirão Preto - SP",
-      "cargo": "Programador",
+      "unidade": "Ribeirão Preto - SP",
+      "cargo": "# Programador",
       "periodo": "NOV 2016 - JAN 2019",
-      "descricao": "Modernização de portais ASP.NET para Angular 2+. Mentoria de desenvolvedores juniores.",
-      "impacto": "Desenvolvimento de módulos críticos para o setor varejista."
+      "descricao_detalhada": "Atuou na modernização de aplicação web utilizando Angular 2+. Correção de bugs e mentoria de programadores, auxiliando na disseminação de boas práticas. Desenvolvia novas funcionalidades para os produtos, inclusive integração de balanças. Atuação híbrida entre novos desenvolvimentos e sustentação.",
+      "tecnologias_utilizadas": [
+        "C#",
+        "Windows Service",
+        "Windows Form",
+        "Angular JS",
+        "Angular 2+",
+        "Javascript",
+        "NodeJs",
+        "ASP NET",
+        "Oracle PL/SQL",
+        "Scrum"
+      ]
     },
     {
-      "empresa": "Sim>Consultas",
-      "local": "Ribeirão Preto - SP",
-      "cargo": "Analista de Desenvolvimento de Sistemas",
+      "empresa": "Sim>>Consultas",
+      "unidade": "Ribeirão Preto - SP",
+      "cargo": "# Analista de Desenvolvimento de Sistemas",
       "periodo": "JAN 2014 - NOV 2016",
-      "descricao": "Engenharia de dados com Web Scraping resiliente.",
-      "impacto": "Implementação de auto-healing e rotação de IPs para SLA 24x7."
+      "descricao_detalhada": "Desenvolvia motores de Web Scraping resiliente a bloqueios, processando picos de consultas/hora. Implementei táticas de auto-healing e rotação de IPs para manter o SLA 24x7 para clientes de missão crítica. Otimização de queries, desenvolvimento de aplicações internas e mentoria novos desenvolvedores. Fazia plantão 1 semana por mês garantindo o total funcionamento dos serviços na AWS.",
+      "tecnologias_utilizadas": [
+        "C#",
+        "SQL Server",
+        "ASP NET",
+        "Angular JS",
+        "Javascript",
+        "Totvs Fluig",
+        "AWS EC2/Load Balancer/Auto Scaling/Logs/",
+        "Observabilidade AWS"
+      ]
     },
     {
-      "empresa": "Duas Vias, SimSoft, Sabtech e Marques & Alves",
-      "local": "Diversos",
-      "cargo": "Desenvolvedor Delphi e Auxiliar",
+      "empresas": [
+        "Duas Vias",
+        "SimSoft",
+        "Sabtech",
+        "Marques & Alves Informática LTDA - ME"
+      ],
+      "cargo": "# Desenvolvedor Delphi e Auxiliar",
       "periodo": "JUN 2008 - DEZ 2013",
-      "descricao": "Manutenção de sistemas ERP e CMS em Delphi e VB.",
-      "impacto": "Atendimento a pequenos negócios e sistemas de gestão."
+      "descricao_detalhada": "Experiências anteriores em desenvolvimento Delphi/Postgres e VB/ASP NET/ SQL SERVER, Javascript em empresas. Criação e manutenção de módulos e funcionalidades em sistemas de gestão de pequenos negócios (Loja, Pizzaria, Salão de beleza, etc...) até sistemas mais robustos como ERP e CMS."
+      "tecnologias": ["Delphi", "Postgres", "VB", "ASP.NET", "SQL Server", "Javascript"]
     }
   ],
   "projetos_ia_inovacao": [
