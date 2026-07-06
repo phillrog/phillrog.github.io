@@ -18,7 +18,16 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@300;400;600&display=swap');
         
         * { box-sizing: border-box; }
-        body { background-color: #000507; color: #fff; font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; margin: 0; padding: 0; overflow-x: hidden; }
+        body { 
+            background-color: #000507; 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            -webkit-print-color-adjust: exact !important; 
+            print-color-adjust: exact !important;
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden; 
+        }
         
         .page-container { 
             background: white; 
@@ -27,7 +36,7 @@
             margin: 0 auto; 
             padding: 20px;
             min-height: 297mm;
-            color: #000;
+            color: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             position: relative;
             box-sizing: border-box;
@@ -56,16 +65,28 @@
                 margin: 0mm;
             }
             .no-print { display: none !important; }
-            body { background: white !important; overflow: visible !important; }
+			html, body { 
+                background: #ffffff !important; 
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                overflow: visible !important; 
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
             .page-container { 
                 width: 210mm; 
-                height: auto !important; 
-                min-height: 0 !important;
+                /* Permite que o container use o tamanho total ou se ajuste sem carregar o fundo do body */
+                height: auto !important;
+                min-height: 297mm !important; 
                 padding: 10.6mm 4mm !important; 
-                margin: 0 !important;
+                margin: 0 auto !important;
                 box-shadow: none !important;
                 display: block !important;
-                background: white;
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
             
             header h1 { font-size: 20pt !important; }
@@ -260,7 +281,7 @@
                     <div className="absolute bottom-10 left-10 z-10 pointer-events-none hidden md:block font-mono">
                         <div className="text-[9px] text-amber-200/20 tracking-[0.4em] uppercase border-l border-amber-200/20 pl-4 py-2">
                             Deployment: Stable <br/>
-                            Core: .NET 9.0 <br/>
+                            Core: .NET 10.0 <br/>
                             Environment: Production
                         </div>
                     </div>
@@ -271,11 +292,11 @@
         const ResumeContent = () => {
                 // Palavras-chave altamente otimizadas para motores de busca ATS corporativos
                 const skills = [
-                    ".NET C# (Core 3.1 a .NET 8)", "Backend Architecture (DDD, CQRS)", "Microservices Ecosystem", 
-                    "Frontend Ecosystem (TypeScript, React, Angular, Tailwind CSS)", "Message Brokers & Queues (Azure Service Bus, RabbitMQ)", 
+                    ".NET C# (Core 3.1 a .NET 10)", "Backend Architecture (DDD, CQRS)", "Microservices Ecosystem", 
+                    "Frontend Ecosystem (Javascript, Node, TypeScript, React, Angular, Tailwind, NextJs, HTML, CSS)", "Message Brokers & Queues (Azure Service Bus, RabbitMQ)", 
                     "Distributed Caching & Event Sourcing (Outbox Pattern, Redis)", "Relational Databases (SQL Server, Oracle PL/SQL)", 
                     "NoSQL Databases (MongoDB, DynamoDB)", "Cloud Computing: Azure & GCP", "DevOps & Cloud Native (Docker, Kubernetes, AWS Lambda)", 
-                    "CI/CD Pipelines (Azure DevOps Server)", "Software Quality & Governance (SonarQube Quality Gates)", 
+                    "CI/CD Pipelines (Azure DevOps Server, Github Actions, Jenkins)", "Software Quality & Governance (SonarQube Quality Gates)", 
                     "Artificial Intelligence Integration (RAG, Prompt Engineering, OpenAI API)", "Agile Methodologies (Scrum, Kanban)"
                 ];
 
@@ -286,9 +307,7 @@
                             <header className="text-center border-b-2 border-black pb-1 mb-2">
                                 <h1 className="text-xl font-black text-black tracking-tighter uppercase leading-none">PHILLIPE ROGER SOUZA</h1>
                                 <h2 className="text-[10px] font-bold text-black my-0.5 uppercase tracking-widest">Fullstack Developer .NET</h2>
-                                <div className="flex flex-wrap justify-center gap-x-2 text-[8px] font-bold text-black">
-                                    <span>Ribeirão Preto - SP</span> |
-                                    <a href="https://github.com/phillrog" target="_blank" className="underline">github.com/phillrog</a> |
+                                <div className="flex flex-wrap justify-center gap-x-2 text-[8px] font-bold text-black">                                    
                                     <a href="https://www.linkedin.com/in/phillrog" target="_blank" className="underline">linkedin.com/in/phillrog</a>
                                 </div>
                             </header>
@@ -340,68 +359,9 @@
                                         </p>
                                     </div>
 
-                                    {/* WAPPA */}
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Analista de Sistemas .NET</span>
-                                            <span className="text-gray-600">ABR 2021 - AGO 2021</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">Wappa Brasil (São Paulo - SP)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuei na sustentação de aplicações relacionadas ao ramo de mobilidade urbana corporativa, realizando a análise e resolução de bugs em módulos de alta complexidade como Passageiro, Motorista e Notificações. Análise de logs e tracing distribuído, garantindo a continuidade de serviços essenciais. Adquiri experiência prática em arquitetura de Microsserviços e integração com APIs do ecossistema Google sob alta volumetria de tráfego. Utilizava .NET Core 3, Microsserviços, Multi Cloud (GCP, AWS), C#, ASP.NET, Observabilidade, Java, SQL Server, Postgres, MongoDB e AWS Lambda.
-                                        </p>
-                                    </div>
-
-                                    {/* MAGIT */}
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Desenvolvedor PL 4</span>
-                                            <span className="text-gray-600">OUT 2020 - MAR 2021</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">MAGIT (Ribeirão Preto - SP)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuei no desenvolvimento e sustentação de soluções nas aplicações de clientes de grande porte no ramo de investimentos e mercado financeiro. Utilizava C#, .NET Core 3, ASP.NET, NodeJs, Typescript, APIs Rest, SOLID, Clean Architecture e metodologia Scrum.
-                                        </p>
-                                    </div>
-
-                                    {/* FH_ */}
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Application Developer</span>
-                                            <span className="text-gray-600">FEV 2019 - SET 2020</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">FH_ (Curitiba - PR)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuei no desenvolvimento de projeto de modernização de sistemas de uma transportadora de grande porte. Implementei processos de mensageria com RabbitMQ (MassTransit) e arquiteturas baseadas em Mediator e Onion/Clean Architecture. Contribuí com testes unitários avançados e configurações de Helm/Kubernetes para deploys em ambientes multitenant de alta disponibilidade. Utilizava C#, .NET Core 3, Angular, NodeJs, Typescript, TDD, DDD, SOLID, SonarQube, Microsserviços, Kubernetes e Docker.
-                                        </p>
-                                    </div>
-
-                                    {/* CONSINCO */}
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Programador</span>
-                                            <span className="text-gray-600">NOV 2016 - JAN 2019</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">Consinco (Ribeirão Preto - SP)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Atuei na modernização de aplicação web para o setor de varejo/supermercados utilizando Angular 2+. Correção de bugs e mentoria técnica de programadores juniores, auxiliando na disseminação de boas práticas e arquitetura de software limpa. Atuação híbrida entre novos desenvolvimentos, integração de balanças e sustentação de sistemas. Utilizava C#, Windows Services, Windows Forms, AngularJS, Angular 2+, Javascript, NodeJs, ASP.NET e Oracle PL/SQL.
-                                        </p>
-                                    </div>   
-
-                                    {/* SIM CONSULTAS */}
-                                    <div className="mb-2">
-                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
-                                            <span># Analista de Desenvolvimento de Sistemas</span>
-                                            <span className="text-gray-600">JAN 2014 - NOV 2016</span>
-                                        </div>
-                                        <div className="text-[10px] font-bold text-gray-700 italic">Sim&gt;&gt;Consultas (Ribeirão Preto - SP)</div>
-                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
-                                            Desenvolvia motores de Web Scraping resilientes a bloqueios e captcha, processando altíssimos picos de consultas por hora. Implementei táticas complexas de auto-healing e rotação de proxies/IPs para manter SLAs rigorosos de 24x7 para clientes corporativos de missão crítica. Otimização profunda de queries em bases de dados relacionais e atuação em regime de plantão gerenciando e escalando serviços da AWS. Utilizava C#, SQL Server, ASP.NET, AngularJS, Javascript, Totvs Fluig e ferramentas Cloud AWS (EC2, Load Balancer, Auto Scaling).
-                                        </p>
-                                    </div>                                    
                                 </section>
 
-                                {/* Competências Técnicas posicionadas estrategicamente após a experiência e com termos otimizados para ATS */}
+                                {/* Competências Técnicas */}
                                 <section>
                                     <h3 className="uppercase border-b border-black font-black text-[10px] mb-1">Competências Técnicas</h3>
                                     <div className="flex flex-wrap gap-1">
@@ -410,8 +370,82 @@
                                         ))}
                                     </div>
                                 </section>
+								{/* Formações */}
+								<section>
+									<h3 className="uppercase border-b border-black font-black text-[10px] mb-1">Formação</h3>
+									
+									<div className="grid grid-cols-12 gap-x-4">
+										
+										{/* Coluna 1: Graduação */}
+										<div className="col-span-6 print:col-span-6">
+											<div className="text-[9px] font-bold uppercase leading-tight">
+												<p className="leading-tight text-gray-800 normal-case italic">Análise e Desenvolvimento de Sistemas</p>
+												<p className="text-gray-500 mb-0.5 text-[8px]">Centro Universitário Moura Lacerda</p>
+												<p className="leading-tight text-gray-800 normal-case font-normal text-gray-600">2013 - 2015</p>
+											</div>
+										</div>
 
-                                <section>
+										{/* Coluna 2: Pós-Graduação */}
+										<div className="col-span-6 print:col-span-6">
+											<div className="text-[9px] font-bold uppercase leading-tight">
+												<p className="leading-tight text-gray-800 normal-case italic">Pós-Graduação Lato Sensu em MultiCloud, DevOps e Inteligência Artificial (IA)</p>
+												<p className="text-gray-500 mb-0.5 text-[8px]">Faculdade Focus</p>
+												<p className="leading-tight text-gray-800 normal-case font-normal text-gray-600">2025 - 2026</p>
+											</div>
+										</div>
+										
+									</div>
+							</section>
+							<section>
+								<div className="grid grid-cols-12">                               
+									<div className="col-span-12 md:col-span-12 print:col-span-12">
+										<section>
+											<h3 className="uppercase border-b border-black font-black text-[8px] mb-0.5">Certificações</h3>
+											<div className="grid grid-cols-4 gap-x-2 text-[6.5px] font-bold leading-tight">
+												<div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
+													<p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">desenvolvedor.io</p>
+													<div className="flex flex-col underline italic text-gray-600 normal-case">
+														<a href="https://desenvolvedor.io/certificado/bc1e2e2f-ccdb-45b1-9212-06a0d31c8b66" target="_blank">Fullstack Developer</a>
+														<a href="https://desenvolvedor.io/certificado/12d4f27c-4f5c-47d2-bcb2-d5ec4d370a68" target="_blank">ASP.NET Core Expert</a>
+														<a href="https://desenvolvedor.io/certificado/a2aac0a0-d858-4a36-98a8-29d54aeb51f9" target="_blank">Angular Expert</a>
+														<a href="https://desenvolvedor.io/certificados/b61783a7-7362-4d79-96c9-00b09a15c9ae" target="_blank">Arquiteto de Software</a>
+														<a href="https://desenvolvedor.io/certificados/84f7f8bd-1d79-4294-8159-b29032cffc67" target="_blank">ASP.NET MVC 5 Expert</a>
+													</div>
+												</div>
+												<div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
+													<p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Udemy</p>
+													<div className="flex flex-col underline italic text-gray-600 normal-case">
+														<a href="https://ude.my/UC-49254688-1a17-4ccf-85ea-c953e31b9ab5" target="_blank">DevOps - Mão na massa!</a>
+														<a href="https://ude.my/UC-3b876b1e-22dc-43fc-a22e-5c17bf51bbd1/" target="_blank">Clean Architecture Essencial</a>
+														<a href="https://ude.my/UC-1b9c4a42-f4e2-4cd7-b39f-c6b15dc53b03" target="_blank">Princípios SOLID na prática</a>
+														<a href="https://www.udemy.com/certificate/UC-6c7d7f69-e26e-4f71-8615-10bb0ddd83a0/" target="_blank">Kubernetes Orquestração</a>
+														<a href="https://ude.my/UC-83cbad82-6cca-4ac0-8ed0-2fb5d5832555" target="_blank">Docker para Desenvolvedores</a>
+													</div>
+												</div>
+												<div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
+													<p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">The Cloud Bootcamp</p>
+													<div className="flex flex-col underline italic text-gray-600 normal-case">
+														<a href="https://drive.google.com/file/d/1W-KzEDZNJZ-KzIpjnr79NDoTtS4_O38B/view?usp=sharing" target="_blank">AI Cloud - MultiCloud/DevOps</a>
+														<a href="https://drive.google.com/file/d/1H8nGGvjmrCZDg35tDjCZWmnun_0GWBZT/view?usp=sharing" target="_blank">Google Cloud Platform</a>
+														<a href="https://drive.google.com/file/d/15B9J43OyiqJYdVW7O-igmI6bBEH8-nHk/view?usp=sharing" target="_blank">Oracle Cloud (OCI)</a>
+														<a href="https://drive.google.com/file/d/1OdoNWhupnJveUkS1licYhdxZaZnVzAWN/view?usp=sharing" target="_blank">Microsoft Azure</a>
+														<a href="https://drive.google.com/file/d/1E_oc0063l29BjtAVD5EKRYtkD7aM8T3U/view" target="_blank">AWS Cloud</a>
+													</div>
+												</div>
+												<div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
+													<p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Especializados</p>
+													<div className="flex flex-col underline italic text-gray-600 normal-case">
+														<a href="https://1drv.ms/b/s!AupKNLsJeRIjiFJh1foq-uYMjEnd?e=55ErX3" target="_blank">gaGO.io: Cloud Native</a>
+														<a href="https://bit.ly/3K8PnYz" target="_blank">gaGO.io: RabbitMQ</a>
+														<a href="https://sgce.fundacaofat.org.br/sgce/validar/C08D9107" target="_blank">FUNDAÇÃO FAT: IA Google</a>
+													</div>
+												</div>
+											</div>
+										</section>
+									</div>
+								</div>
+							</section>
+							<section>
                                     <h3 className="uppercase border-b border-black font-black text-[10px] mb-1 print:pt-2">Projetos em IA & Inovação (Labs)</h3>
                                     <div className="grid grid-cols-1 gap-y-1.5">
                                         <div>
@@ -421,16 +455,6 @@
                                             </div>
                                             <p className="text-[8px] leading-tight text-gray-700 text-justify">
                                                 Plataforma educativa multimodal que utiliza YOLOv8 para garantir a privacidade local (detecção de faces) antes de processar dados via Google Gemini. Implementa um protocolo de comunicação estruturado com tags customizadas e síntese de voz (gTTS).
-                                            </p>
-                                        </div>
-
-                                        <div>
-                                            <div className="flex justify-between items-baseline">
-                                                <span className="text-[9px] font-black uppercase">IA Resume Expert (Prompt Engineering)</span>
-                                                <a href="https://github.com/phillrog/assistente-de-curriculo" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">github.com/phillrog/assistente-de-curriculo</a>
-                                            </div>
-                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
-                                                Sistema de mentoria de carreira que utiliza Few-Shot Prompting e delimitadores XML para análise de aderência (Match Score). Aplica metodologias de mercado como o Método STAR e otimização para sistemas ATS.
                                             </p>
                                         </div>
 
@@ -446,63 +470,6 @@
                                     </div>
                                 </section>
 
-                            <div className="grid grid-cols-12 gap-2">
-                                <div className="col-span-12 md:col-span-3 print:col-span-3">
-                                    <section>
-                                        <h3 className="uppercase border-b border-black font-black text-[10px] mb-0.5">Formação</h3>
-                                        <div className="text-[9px] font-bold uppercase leading-tight">
-                                            <p className="leading-tight text-gray-800 normal-case">Análise e Desenvolvimento de Sistemas</p>
-                                            <p className="leading-tight text-gray-800 normal-case">Centro Universitário Moura Lacerda</p>
-                                            <p className="leading-tight text-gray-800 normal-case">2013 - 2015</p>
-                                        </div>
-                                    </section>
-                                </div>
-                                <div className="col-span-12 md:col-span-9 print:col-span-9">
-                                    <section>
-                                        <h3 className="uppercase border-b border-black font-black text-[8px] mb-0.5">Certificações</h3>
-                                        <div className="grid grid-cols-4 gap-x-2 text-[6.5px] font-bold leading-tight">
-                                            <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
-                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">desenvolvedor.io</p>
-                                                <div className="flex flex-col underline italic text-gray-600 normal-case">
-                                                    <a href="https://desenvolvedor.io/certificado/bc1e2e2f-ccdb-45b1-9212-06a0d31c8b66" target="_blank">Fullstack Developer</a>
-												    <a href="https://desenvolvedor.io/certificado/12d4f27c-4f5c-47d2-bcb2-d5ec4d370a68" target="_blank">ASP.NET Core Expert</a>
-												    <a href="https://desenvolvedor.io/certificado/a2aac0a0-d858-4a36-98a8-29d54aeb51f9" target="_blank">Angular Expert</a>
-												    <a href="https://desenvolvedor.io/certificados/b61783a7-7362-4d79-96c9-00b09a15c9ae" target="_blank">Arquiteto de Software</a>
-                                                    <a href="https://desenvolvedor.io/certificados/84f7f8bd-1d79-4294-8159-b29032cffc67" target="_blank">ASP.NET MVC 5 Expert</a>
-                                                </div>
-                                            </div>
-                                            <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
-                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Udemy</p>
-                                                <div className="flex flex-col underline italic text-gray-600 normal-case">
-                                                    <a href="https://ude.my/UC-49254688-1a17-4ccf-85ea-c953e31b9ab5" target="_blank">DevOps - Mão na massa!</a>
-                                                    <a href="https://ude.my/UC-3b876b1e-22dc-43fc-a22e-5c17bf51bbd1/" target="_blank">Clean Architecture Essencial</a>
-                                                    <a href="https://ude.my/UC-1b9c4a42-f4e2-4cd7-b39f-c6b15dc53b03" target="_blank">Princípios SOLID na prática</a>
-                                                    <a href="https://www.udemy.com/certificate/UC-6c7d7f69-e26e-4f71-8615-10bb0ddd83a0/" target="_blank">Kubernetes Orquestração</a>
-                                                    <a href="https://ude.my/UC-83cbad82-6cca-4ac0-8ed0-2fb5d5832555" target="_blank">Docker para Desenvolvedores</a>
-                                                </div>
-                                            </div>
-                                            <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
-                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">The Cloud Bootcamp</p>
-                                                <div className="flex flex-col underline italic text-gray-600 normal-case">
-                                                    <a href="https://drive.google.com/file/d/1W-KzEDZNJZ-KzIpjnr79NDoTtS4_O38B/view?usp=sharing" target="_blank">AI Cloud - MultiCloud/DevOps</a>
-												    <a href="https://drive.google.com/file/d/1H8nGGvjmrCZDg35tDjCZWmnun_0GWBZT/view?usp=sharing" target="_blank">Google Cloud Platform</a>
-												    <a href="https://drive.google.com/file/d/15B9J43OyiqJYdVW7O-igmI6bBEH8-nHk/view?usp=sharing" target="_blank">Oracle Cloud (OCI)</a>
-												    <a href="https://drive.google.com/file/d/1OdoNWhupnJveUkS1licYhdxZaZnVzAWN/view?usp=sharing" target="_blank">Microsoft Azure</a>
-												    <a href="https://drive.google.com/file/d/1E_oc0063l29BjtAVD5EKRYtkD7aM8T3U/view" target="_blank">AWS Cloud</a>
-                                                </div>
-                                            </div>
-                                            <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
-                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Especializados</p>
-                                                <div className="flex flex-col underline italic text-gray-600 normal-case">
-                                                    <a href="https://1drv.ms/b/s!AupKNLsJeRIjiFJh1foq-uYMjEnd?e=55ErX3" target="_blank">gaGO.io: Cloud Native</a>
-                                                    <a href="https://bit.ly/3K8PnYz" target="_blank">gaGO.io: RabbitMQ</a>
-                                                    <a href="https://sgce.fundacaofat.org.br/sgce/validar/C08D9107" target="_blank">FUNDAÇÃO FAT: IA Google</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
                         </main>
                     </div>
                 </motion.div>
