@@ -1,796 +1,637 @@
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta charset="UTF-8">    
-	<title>Currículo</title>
-    
-	<link href="css/gemini.css" rel="stylesheet"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHILLIPE ROGER SOUZA - Fullstack Developer .NET</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@11.11.11/dist/framer-motion.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/gemini.css" rel="stylesheet"> 
 	<link rel="stylesheet" href="css/custom.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-	<style type="text/css">
-		/* Copyright 2014-present Evernote Corporation. All rights reserved. */
-		@keyframes caretBlink {
-			from {
-				opacity: 1.0;
-			}
-
-			to {
-				opacity: 0.0;
-			}
-		}
-
-		@keyframes rotateSpinner {
-			from {
-				transform: rotate(0deg);
-			}
-
-			to {
-				transform: rotate(360deg);
-			}
-		}
-
-		#text-tool-caret {
-			animation-name: caretBlink;
-			animation-iteration-count: infinite;
-			animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
-			animation-duration: 1s;
-		}
-
-		#en-markup-loading-spinner {
-			position: absolute;
-			top: calc(50% - 16px);
-			left: calc(50% - 16px);
-			width: 32px;
-			height: 32px;
-		}
-
-		#en-markup-loading-spinner img {
-			position: relative;
-			top: 0px;
-			left: 0px;
-			animation-name: rotateSpinner;
-			animation-duration: 0.6s;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
-		}
-		.fa, .material-icons {
-			font-size: 14px;
-		}
-	</style>
-	<style type="text/css">
-		/* Copyright 2014-present Evernote Corporation. All rights reserved. */
-		.skitchToastBoxContainer {
-			position: absolute;
-			width: 100%;
-			text-align: center;
-			top: 30px;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			pointer-events: none;
-		}
-
-		.skitchToastBox {
-			width: 200px;
-			height: 16px;
-			padding: 12px;
-			background-color: rgba(47, 55, 61, 0.95);
-			border-radius: 4px;
-			color: white;
-			cursor: default;
-			font-size: 10pt;
-			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.32);
-			font-family: 'Soleil', Helvetica, Arial, sans-serif;
-			border: 2px rgba(255, 255, 255, 0.38) solid;
-		}
-
-		.lang-zh-cn .skitchToastBox {
-			font-family: '微软雅黑', 'Microsoft YaHei', SimSun,
-				'&#x30E1;&#x30A4;&#x30EA;&#x30AA;', Meiryo, 'MS PGothic', 'Soleil',
-				Helvetica, Arial, sans-serif;
-		}
-
-		.lang-ja-jp .skitchToastBox {
-			font-family: '&#x30E1;&#x30A4;&#x30EA;&#x30AA;', Meiryo, 'MS PGothic',
-				'微软雅黑', 'Microsoft YaHei', SimSun, 'Soleil', Helvetica, Arial,
-				sans-serif;
-		}
-
-		.skitchToast {
-			padding-left: 20px;
-			padding-right: 20px;
-			display: inline-block;
-			height: 10px;
-			color: #f1f5f8;
-			text-align: center;
-		}
-
-		.skitchVisible {
-			/* Don't remove this class it's a hack used by the Evernote Clipper */
-		}
-	</style>
-	
-	<style type="text/css">
-		/* Copyright 2019-present Evernote Corporation. All rights reserved. */
-
-		#en-markup-disabled {
-			position: fixed;
-			z-index: 9999;
-			width: 100%;
-			height: 100%;
-			top: 0px;
-			left: 0px;
-			cursor: default;
-			-webkit-user-select: none;
-		}
-
-		#en-markup-alert-container {
-			position: absolute;
-			z-index: 9999;
-			width: 450px;
-			left: calc(50% - 225px);
-			top: calc(50% - 85px);
-			background-color: white;
-			box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.35);
-			-webkit-user-select: none;
-		}
-
-		#en-markup-alert-container .cell-1 {
-			position: relative;
-			height: 110px;
-			width: 105px;
-			float: left;
-			text-align: center;			
-			background-position: 65% 50%;
-			background-repeat: no-repeat;
-		}
-
-		#en-markup-alert-container .cell-2 {
-			position: relative;
-			float: left;
-			width: 345px;
-			margin-top: 29px;
-			margin-bottom: 20px;
-		}
-
-		#en-markup-alert-container .cell-2 .cell-2-title {
-			margin-bottom: 5px;
-			padding-right: 30px;
-			font-size: 12pt;
-			font-family: Tahoma, Arial;
-		}
-
-		#en-markup-alert-container .cell-2 .cell-2-message {
-			padding-right: 30px;
-			font-size: 9.5pt;
-			font-family: Tahoma, Arial;
-		}
-
-		#en-markup-alert-container .cell-3 {
-			position: relative;
-			width: 450px;
-			height: 60px;
-			float: left;
-			background-color: rgb(240, 240, 240);
-		}
-
-		#en-markup-alert-container .cell-3 button {
-			position: absolute;
-			top: 12px;
-			right: 15px;
-			width: 110px;
-			height: 36px;
-		}
-
-		#en-markup-alert-container .cell-3 button.alt-button {
-			position: absolute;
-			top: 12px;
-			right: 140px;
-			width: 110px;
-			height: 36px;
-		}
-
-		.align-baseline {
-			align-items: baseline;
-		}
-
-		p.info {
-			text-align: justify;
-		}
-	</style>
-	
 	<link href="css/site.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@300;400;600&display=swap');
+        
+        * { box-sizing: border-box; }
+        body { background-color: #000507; color: #fff; font-family: 'Inter', sans-serif; -webkit-print-color-adjust: exact; margin: 0; padding: 0; overflow-x: hidden; }
+        
+        .page-container { 
+            background: white; 
+            width: 100%;
+            max-width: 210mm; 
+            margin: 0 auto; 
+            padding: 20px;
+            min-height: 297mm;
+            color: #000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        header h1 { font-size: 24pt !important; }
+        header h2 { font-size: 10pt !important; margin: 5px 0 !important; }
+        header div { font-size: 9pt !important; }
+        h3 { font-size: 9pt !important; margin-top: 15px !important; margin-bottom: 5px !important; }
+        p { font-size: 9pt !important; line-height: 1.6 !important; }
+        .info-text { font-size: 9.5pt !important; line-height: 1.35 !important; }
+        span.bg-white { font-size: 8.5pt !important; padding: 2px 5px !important; margin-bottom: 3px !important; display: inline-block !important; }
+        li { font-size: 8.5pt !important; }
+        .grid div section h3 { font-size: 10pt !important; }
+        .grid div section div p { font-size: 7.5pt !important; }
+        .grid div section div a { font-size: 7.5pt !important; }
+        
+        section { page-break-inside: avoid; margin-bottom: 10px !important; }
+        .print-grid { display: grid !important; grid-template-columns: repeat(12, minmax(0, 1fr)) !important; gap: 1rem !important; }
+        .print-col-4 { grid-column: span 4 / span 4 !important; }
+        .print-col-8 { grid-column: span 8 / span 8 !important; }
+
+        @media print { 
+            @page {
+                size: A4;
+                margin: 0mm;
+            }
+            .no-print { display: none !important; }
+            body { background: white !important; overflow: visible !important; }
+            .page-container { 
+                width: 210mm; 
+                height: auto !important; 
+                min-height: 0 !important;
+                padding: 10.6mm 4mm !important; 
+                margin: 0 !important;
+                box-shadow: none !important;
+                display: block !important;
+                background: white;
+            }
+            
+            header h1 { font-size: 20pt !important; }
+            header h2 { font-size: 9pt !important; margin: 5px 0 !important; }
+            header div { font-size: 8pt !important; }
+            h3 { font-size: 8pt !important; margin-top: 15px !important; margin-bottom: 5px !important; }
+            p { font-size: 7pt !important; line-height: 1.4 !important; }
+            .info-text { font-size: 8.5pt !important; line-height: 1.35 !important; }
+            span.bg-white { font-size: 7.5pt !important; padding: 2px 5px !important; margin-bottom: 3px !important; display: inline-block !important; }
+            li { font-size: 8.5pt !important; }
+            .grid div section h3 { font-size: 9pt !important; }
+            .grid div section div p { font-size: 7.5pt !important; }
+            .grid div section div a { font-size: 8.5pt !important; }
+            
+            section { page-break-inside: avoid; margin-bottom: 10px !important; }
+            .print-grid { display: grid !important; grid-template-columns: repeat(12, minmax(0, 1fr)) !important; gap: 1rem !important; }
+            .print-col-4 { grid-column: span 4 / span 4 !important; }
+            .print-col-8 { grid-column: span 8 / span 8 !important; }
+
+            a { color: black !important; text-decoration: none !important; }
+        }
+        
+        .link-style { color: #000000; text-decoration: underline; }
+        .sidebar-text { font-size: 10.80rem; line-height: 1.8; }
+        .sidebar-cert-text { font-size: 10.78rem; line-height: 1.8; }
+
+        .light-rays-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .white-out { position: fixed; inset: 0; background: white; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 1.5s ease-in; }
+        .white-out.active { opacity: 1; }
+
+        .shiny-text {
+            color: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(120deg, transparent 30%, rgba(255, 215, 100, 0.8) 50%, transparent 70%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 4s linear infinite;
+            display: block;
+        }
+
+        @keyframes shine { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .dot-anim { display: inline-block; animation: dotPulse 1.5s infinite; opacity: 0; }
+        .dot-anim:nth-child(2) { animation-delay: 0.2s; }
+        .dot-anim:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes dotPulse { 0%, 100% { opacity: 0.2; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-2px); } }
+        .splash-cursor { display: inline-block; width: 8px; height: 1.2em; background: rgba(255, 215, 100, 0.7); margin-left: 8px; animation: blink 1s infinite; vertical-align: middle; }
+        @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+        #box input{ color: #000 !important; }
+
+        @media print {
+            #box, .box, .Zmxtcf, .e5IPTd, [title*="conversar com o Phill"], button[aria-label="Pedir para Gemini"] {
+                display: none !important;
+            }
+        }
+        @media (min-width: 769px) and screen {
+            .box { display: flex !important; }
+            .Zmxtcf { display: block !important; }
+        }
+    </style>
 </head>
-
 <body>
-	<main>
-		<div class="leftCol m_box">
-			<section class="contacts">
-				<div class="section-headline">
-					Contato
-				</div>				
+    <div id="root"></div>
 
-				<div class="contact align-baseline">
-					<div class="icon">
-						<i class="material-icons">location_city</i>
-					</div>
-					<div class="text">
-						<ul>
-							<li>Ribeirão Preto - SP</li>
-						</ul>
-					</div>
-				</div>				
+    <script type="text/babel">
+        const { useRef, useEffect, useState } = React;
+        const { motion, AnimatePresence } = window.Motion || window.FramerMotion;
 
-				<div class="contact align-baseline">
-					<div class="icon">
-						<i class="material-icons">email</i>
-					</div>
-					<div class="text">
-						<a href="mailto:phillrog@hotmail.com">phillrog@hotmail.com</a>
-					</div>
-				</div>
+        const LoadingDots = () => (
+            <span className="inline-flex ml-1">
+                <span className="dot-anim">.</span><span className="dot-anim">.</span><span className="dot-anim">.</span>
+            </span>
+        );
 
-				<div class="contact align-baseline">
-					<div class="icon">
-						<i class="fa fa-github"></i>
-					</div>
-					<div class="text">
-						<a href="https://github.com/phillrog" target="_blank">
-							<span>https://github.com/phillrog</span>
-						</a>
-					</div>
-				</div>
+        const TextTypePrompt = ({ messages, onComplete }) => {
+            const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+            const [currentText, setCurrentText] = useState("");
+            const [isDeleting, setIsDeleting] = useState(false);
+            const [typingSpeed, setTypingSpeed] = useState(100);
 
-				<div class="contact align-baseline">
-					<div class="icon">
-						<i class="fa fa-linkedin"></i>
-					</div>
-					<div class="text">
-						<a href="https://www.linkedin.com/in/phillrog" target="_blank">
-							<span>https://www.linkedin.com/in/phillrog</span>
-						</a>
-					</div>
-				</div>
-			</section>
+            useEffect(() => {
+                const handleTyping = () => {
+                    const fullText = messages[currentMessageIndex];
+                    if (!isDeleting) {
+                        setCurrentText(fullText.substring(0, currentText.length + 1));
+                        setTypingSpeed(100);
+                        if (currentText === fullText) {
+                            if (currentMessageIndex === messages.length - 1) {
+                                setTimeout(onComplete, 1500);
+                            } else {
+                                setTimeout(() => setIsDeleting(true), 2000);
+                            }
+                        }
+                    } else {
+                        setCurrentText(fullText.substring(0, currentText.length - 1));
+                        setTypingSpeed(20);
+                        if (currentText === "") {
+                            setIsDeleting(false);
+                            setCurrentMessageIndex(prev => prev + 1);
+                        }
+                    }
+                };
+                const timer = setTimeout(handleTyping, typingSpeed);
+                return () => clearTimeout(timer);
+            }, [currentText, isDeleting, currentMessageIndex, messages]);
 
-			<section class="skills">
-				<div class="section-headline">
-					Habilidades Comportamentais
-				</div>
+            return (
+                <div className="text-center px-4 z-10">
+                    <div className="text-amber-200/40 text-[10px] md:text-xs mb-4 tracking-[0.3em] uppercase flex items-center justify-center font-mono">
+                        System.Initialize <LoadingDots />
+                    </div>
+                    <div className="min-h-[80px] flex items-center justify-center font-mono">
+                        <div className="text-xl md:text-4xl font-light tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,215,100,0.2)]">
+                            <span className="opacity-30 mr-4">|</span>
+                            {currentText}
+                            <span className="splash-cursor"></span>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
 
-				<div class="skill">
-					<span>Trabalho em parceria / Orientação a valor</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+        const WebGLLightRays = ({ exposure }) => {
+            const containerRef = useRef(null);
+            const exposureRef = useRef(1.0);
+            useEffect(() => { exposureRef.current = exposure; }, [exposure]);
+            useEffect(() => {
+                const container = containerRef.current;
+                const canvas = document.createElement('canvas');
+                container.appendChild(canvas);
+                const gl = canvas.getContext('webgl', { alpha: true });
+                if (!gl) return;
+                const vs = `attribute vec2 pos; varying vec2 vUv; void main(){ vUv=pos*0.5+0.5; gl_Position=vec4(pos,0.,1.); }`;
+                const fs = `precision highp float; uniform float iTime; uniform vec2 iRes; uniform float iExposure; varying vec2 vUv; void main(){ vec2 uv = gl_FragCoord.xy / iRes.xy; vec2 coord = uv * 2.0 - 1.0; coord.x *= iRes.x / iRes.y; vec2 rayPos = vec2(0.0, 1.3); vec2 dir = normalize(coord - rayPos); float angle = atan(dir.y, dir.x); float rays = 0.0; for(float i = 1.0; i <= 10.0; i++){ rays += pow(0.5 + 0.5 * sin(angle * i * 2.5 + iTime * 0.6 * (0.5 + i * 0.15)), 12.0) * (1.0/i); } float dist = length(coord - rayPos); float falloff = smoothstep(3.0, 0.0, dist); vec3 raysColor = vec3(0.9, 0.75, 0.45) * iExposure; vec3 color = mix(vec3(0.0, 0.04, 0.06), raysColor, rays * falloff * iExposure); if(iExposure > 1.5) color += (iExposure - 1.5) * 0.5; gl_FragColor = vec4(color, 1.0); }`;
+                const program = gl.createProgram();
+                const createS = (t, s) => { const sh = gl.createShader(t); gl.shaderSource(sh, s); gl.compileShader(sh); return sh; };
+                gl.attachShader(program, createS(gl.VERTEX_SHADER, vs));
+                gl.attachShader(program, createS(gl.FRAGMENT_SHADER, fs));
+                gl.linkProgram(program);
+                gl.useProgram(program);
+                const vertices = new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]);
+                gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+                gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+                const pos = gl.getAttribLocation(program, "pos");
+                gl.enableVertexAttribArray(pos);
+                gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+                const iTime = gl.getUniformLocation(program, "iTime");
+                const iRes = gl.getUniformLocation(program, "iRes");
+                const iExp = gl.getUniformLocation(program, "iExposure");
+                const render = (t) => {
+                    gl.uniform1f(iTime, t * 0.001);
+                    gl.uniform2f(iRes, canvas.width, canvas.height);
+                    gl.uniform1f(iExp, exposureRef.current);
+                    gl.drawArrays(gl.TRIANGLES, 0, 6);
+                    requestAnimationFrame(render);
+                };
+                const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; gl.viewport(0, 0, canvas.width, canvas.height); };
+                window.addEventListener('resize', resize);
+                resize();
+                requestAnimationFrame(render);
+                return () => window.removeEventListener('resize', resize);
+            }, []);
+            return <div ref={containerRef} className="light-rays-container" />;
+        };
 
-				<div class="skill">
-					<span>Resiliência técnica / Visão de dono</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-				<div class="skill">
-					<span>Referência técnica / Comunicação assertiva</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-				<div class="skill">
-					<span>Pensamento crítico</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-			</section>
-			<section class="skills">
-				<div class="section-headline">
-					Competências
-				</div>
+        const SplashScreen = ({ onComplete }) => {
+            const [exposure, setExposure] = useState(1.0);
+            const messages = ["Olá, seja bem-vindo(a)!"];
+            const handleComplete = () => {
+                let val = 1.0;
+                const interval = setInterval(() => {
+                    val += 0.2; setExposure(val);
+                    if (val > 8) { clearInterval(interval); setTimeout(onComplete, 500); }
+                }, 30);
+            };
 
-				<div class="skill">
-					<span>.NET Core / C#</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+            return (
+                <div className="fixed inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-[#000507] z-[100] no-print">
+                    <div className={`white-out ${exposure > 5 ? 'active' : ''}`}></div>
+                    <WebGLLightRays exposure={exposure} />
+                    <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_20%,transparent_0%,rgba(0,5,7,0.7)_90%)] z-[5]"></div>
+                    <TextTypePrompt messages={messages} onComplete={handleComplete} />
 
-				<div class="skill">
-					<span>Angular / JS / TS</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                    <div className="absolute bottom-10 right-10 z-20 text-right pointer-events-none font-mono">
+                        <div className="text-xs md:text-sm tracking-wider space-y-1">
+                            <span className="shiny-text font-bold">Currículo de Phillipe Roger Souza</span>
+                            <span className="shiny-text opacity-80">Fullstack .NET Developer</span>
+                            <span className="shiny-text opacity-60 text-[10px]">Angular / React</span>
+                        </div>
+                    </div>
 
-				<div class="skill">
-					<span>Microsserviços / REST / Webservices</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                    <div className="absolute bottom-10 left-10 z-10 pointer-events-none hidden md:block font-mono">
+                        <div className="text-[9px] text-amber-200/20 tracking-[0.4em] uppercase border-l border-amber-200/20 pl-4 py-2">
+                            Deployment: Stable <br/>
+                            Core: .NET 9.0 <br/>
+                            Environment: Production
+                        </div>
+                    </div>
+                </div>
+            );
+        };
 
+        const ResumeContent = () => {
+                // Palavras-chave altamente otimizadas para motores de busca ATS corporativos
+                const skills = [
+                    ".NET C# (Core 3.1 a .NET 8)", "Backend Architecture (DDD, CQRS)", "Microservices Ecosystem", 
+                    "Frontend Ecosystem (TypeScript, React, Angular, Tailwind CSS)", "Message Brokers & Queues (Azure Service Bus, RabbitMQ)", 
+                    "Distributed Caching & Event Sourcing (Outbox Pattern, Redis)", "Relational Databases (SQL Server, Oracle PL/SQL)", 
+                    "NoSQL Databases (MongoDB, DynamoDB)", "Cloud Computing: Azure & GCP", "DevOps & Cloud Native (Docker, Kubernetes, AWS Lambda)", 
+                    "CI/CD Pipelines (Azure DevOps Server)", "Software Quality & Governance (SonarQube Quality Gates)", 
+                    "Artificial Intelligence Integration (RAG, Prompt Engineering, OpenAI API)", "Agile Methodologies (Scrum, Kanban)"
+                ];
 
+                return (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="min-h-screen bg-gray-100 py-2 print:py-0">
+                        <div className="page-container shadow-2xl mx-auto bg-white p-5 max-w-[210mm] text-black border border-transparent">
 
-				<div class="skill">
-					<span>HTML / CSS/ javascript</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                            <header className="text-center border-b-2 border-black pb-1 mb-2">
+                                <h1 className="text-xl font-black text-black tracking-tighter uppercase leading-none">PHILLIPE ROGER SOUZA</h1>
+                                <h2 className="text-[10px] font-bold text-black my-0.5 uppercase tracking-widest">Fullstack Developer .NET</h2>
+                                <div className="flex flex-wrap justify-center gap-x-2 text-[8px] font-bold text-black">
+                                    <span>Ribeirão Preto - SP</span> |
+                                    <a href="https://github.com/phillrog" target="_blank" className="underline">github.com/phillrog</a> |
+                                    <a href="https://www.linkedin.com/in/phillrog" target="_blank" className="underline">linkedin.com/in/phillrog</a>
+                                </div>
+                            </header>
 
-				<div class="skill">
-					<span>CQRS / DDD / Clean</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                            <main className="space-y-2">
+                                <section>
+                                    <h3 className="uppercase border-b border-black font-black text-[10px] mb-0.5">Perfil Profissional</h3>
+                                    <p className="text-[9px] leading-tight text-justify text-gray-800">
+                                        Desenvolvedor Full Stack Sênior (C#/.NET e Angular/React) focado na entrega de soluções de ponta a ponta. Experiência robusta na construção de arquiteturas escaláveis e resilientes em nuvem. Atuação em projetos de grande porte, transformação digital e inovação prática com Inteligência Artificial, incluindo engenharia de prompts, fluxos de RAG e automação do ciclo de desenvolvimento com agentes autônomos de IA.
+                                    </p>
+                                </section>
+                                    
+                                <section>
+                                    <h3 className="uppercase border-b border-black font-black text-[10px] mb-1">Histórico Profissional</h3>
+									
+									{/* Stefanini */}
+                                    <div className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span># Desenvolvedor Full Stack Sênior</span>
+                                            <span className="text-gray-600">MAR 2026 - Atualmente</span>
+                                        </div>
+                                        <div className="text-[10px] font-bold text-gray-700 italic">Stefanini Consultoria E Assessoria Em Informatica (São Paulo - SP)</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            Atuação em sistema de grande porte voltado ao comércio exterior, focado na emissão e validação de Certificações de Origem internacionais sob metodologias ágeis (Scrum/Kanban). Desenvolvimento de módulos core críticos para cadastros complexos de empresas, prestadores e microsserviço de notificações, além de CMS, Fique Sabendo, Central de Ajuda, Formulários Dinâmicos para construção de Declarações/Acordos e Landing Page. Atuação de vanguarda no ecossistema com IA e Engenharia de Prompts via RAG integrada ao Jira, realizando análise preditiva de User Stories (US) para refinamento automatizado de requisitos. Code Review das implementações feitas pelas IAs. Arquitetura de microsserviços em .NET Core 10 e React.js/Tailwind aplicando CQRS, Outbox Pattern, Azure Service Bus, Redis e persistência em SQL Server e MongoDB. Integração com APIs externas (SERPRO) e garantia de governança técnica rigorosa por meio de Quality Gates no SonarQube, containers em Docker/Kubernetes e gestão segura de segredos com Azure Key Vault.
+                                        </p>
+                                    </div>
 
-				<div class="skill">
-					<span>SOLID / GRASP / POO</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                                    {/* GRUPO COLORADO */}
+                                    <div className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span># Analista de Sistemas Sênior</span>
+                                            <span className="text-gray-600">AGO 2024 - NOV 2025</span>
+                                        </div>
+                                        <div className="text-[10px] font-bold text-gray-700 italic">Grupo Colorado (Orlândia - SP)</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            Atuei com alta autonomia técnica na identificação de débitos técnicos, documentações e proposição de melhorias arquiteturais. Propus e implementei a migração do ERP para .NET 8, liderando tecnicamente todo o processo de adaptação do código e garantindo a estabilidade da nova versão, além de implementar de forma proativa uma infraestrutura de agendamento com Hangfire, automatizando processos que antes eram manuais. Otimizei a extração de dados para indicadores estratégicos (KPIs) e relatórios Qlik, garantindo performance em módulos complexos (Agrícola/Balança). Criei PWA em Blazor para aprovação de requisições totalmente responsiva. Entreguei 225+ tarefas com foco em padronização, functionalities e estabilidade do ERP e sistemas legados. Utilizava C#, ASP.NET, Javascript, .NET 6/8, Blazor, SQL Server, Qlik, VB6, Genexus, SOLID e Clean Architecture.
+                                        </p>
+                                    </div>
 
-				<div class="skill">
-					<span>Azure Devops Server (TFS)</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                                    {/* CONFITEC */}
+                                    <div className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span># Analista de Sistemas Sênior</span>
+                                            <span className="text-gray-600">AGO 2021 - JUL 2024</span>
+                                        </div>
+                                        <div className="text-[10px] font-bold text-gray-700 italic">Confitec (São Paulo - SP)</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            Venci o Concurso Interno de Inovação em 2024. Atuava na sustentação e desenvolvimento de produtos de seguros. Tive o primeiro contato prático com IA Generativa, integrando ferramentas de Azure Speech to Text e OpenAI (GPT) para resumos inteligentes. Desenvolvi e implementei um Webhook para integração em tempo real com a API da Digesto, automatizando a atualização de dados jurídicos no sistema de gestão de processos. Atuação direta com stakeholders e clientes para alinhamento técnico, refinamento de demandas em Sprints e suporte a incidentes críticos. Utilizava C#, .NET Core 3, .NET 6, ASP.NET, Angular, NodeJs, Typescript, Ionic, SOLID, Clean Architecture, conceitos DDD, CQRS, JWT, OAuth, Azure Devops Server.
+                                        </p>
+                                    </div>
 
-				<div class="skill">
-					<span>MSSQL / PL-SQL / MongoDb</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                                    {/* WAPPA */}
+                                    <div className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span># Analista de Sistemas .NET</span>
+                                            <span className="text-gray-600">ABR 2021 - AGO 2021</span>
+                                        </div>
+                                        <div className="text-[10px] font-bold text-gray-700 italic">Wappa Brasil (São Paulo - SP)</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            Atuei na sustentação de aplicações relacionadas ao ramo de mobilidade urbana corporativa, realizando a análise e resolução de bugs em módulos de alta complexidade como Passageiro, Motorista e Notificações. Análise de logs e tracing distribuído, garantindo a continuidade de serviços essenciais. Adquiri experiência prática em arquitetura de Microsserviços e integração com APIs do ecossistema Google sob alta volumetria de tráfego. Utilizava .NET Core 3, Microsserviços, Multi Cloud (GCP, AWS), C#, ASP.NET, Observabilidade, Java, SQL Server, Postgres, MongoDB e AWS Lambda.
+                                        </p>
+                                    </div>
 
-				<div class="skill">
-					<span>Docker / Kubernetes</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
+                                    {/* MAGIT */}
+                                    <div className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span># Desenvolvedor PL 4</span>
+                                            <span className="text-gray-600">OUT 2020 - MAR 2021</span>
+                                        </div>
+                                        <div className="text-[10px] font-bold text-gray-700 italic">MAGIT (Ribeirão Preto - SP)</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            Atuei no desenvolvimento e sustentação de soluções nas aplicações de clientes de grande porte no ramo de investimentos e mercado financeiro. Utilizava C#, .NET Core 3, ASP.NET, NodeJs, Typescript, APIs Rest, SOLID, Clean Architecture e metodologia Scrum.
+                                        </p>
+                                    </div>
 
-				<div class="skill">
-					<span>Multi Cloud & DevOps</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-				<div class="skill">
-					<span>Git / SVN / TFS</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-				<div class="skill">
-					<span>Kanban / Scrum</span>
-					<div class="progress">
-						<div class="determinate" style="width: 0%;">
-							</div>
-					</div>
-				</div>
-			</section>
+                                    {/* FH_ */}
+                                    <div className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span># Application Developer</span>
+                                            <span className="text-gray-600">FEV 2019 - SET 2020</span>
+                                        </div>
+                                        <div className="text-[10px] font-bold text-gray-700 italic">FH_ (Curitiba - PR)</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            Atuei no desenvolvimento de projeto de modernização de sistemas de uma transportadora de grande porte. Implementei processos de mensageria com RabbitMQ (MassTransit) e arquiteturas baseadas em Mediator e Onion/Clean Architecture. Contribuí com testes unitários avançados e configurações de Helm/Kubernetes para deploys em ambientes multitenant de alta disponibilidade. Utilizava C#, .NET Core 3, Angular, NodeJs, Typescript, TDD, DDD, SOLID, SonarQube, Microsserviços, Kubernetes e Docker.
+                                        </p>
+                                    </div>
 
+                                    {/* CONSINCO */}
+                                    <div className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span># Programador</span>
+                                            <span className="text-gray-600">NOV 2016 - JAN 2019</span>
+                                        </div>
+                                        <div className="text-[10px] font-bold text-gray-700 italic">Consinco (Ribeirão Preto - SP)</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            Atuei na modernização de aplicação web para o setor de varejo/supermercados utilizando Angular 2+. Correção de bugs e mentoria técnica de programadores juniores, auxiliando na disseminação de boas práticas e arquitetura de software limpa. Atuação híbrida entre novos desenvolvimentos, integração de balanças e sustentação de sistemas. Utilizava C#, Windows Services, Windows Forms, AngularJS, Angular 2+, Javascript, NodeJs, ASP.NET e Oracle PL/SQL.
+                                        </p>
+                                    </div>   
 
-			<section class="certifications">
-				<div class="section-headline">
-					Certificações
-				</div>
+                                    {/* SIM CONSULTAS */}
+                                    <div className="mb-2">
+                                        <div className="flex justify-between items-baseline font-bold text-[10px] uppercase">
+                                            <span># Analista de Desenvolvimento de Sistemas</span>
+                                            <span className="text-gray-600">JAN 2014 - NOV 2016</span>
+                                        </div>
+                                        <div className="text-[10px] font-bold text-gray-700 italic">Sim&gt;&gt;Consultas (Ribeirão Preto - SP)</div>
+                                        <p className="text-[9px] leading-tight text-gray-800 text-justify">
+                                            Desenvolvia motores de Web Scraping resilientes a bloqueios e captcha, processando altíssimos picos de consultas por hora. Implementei táticas complexas de auto-healing e rotação de proxies/IPs para manter SLAs rigorosos de 24x7 para clientes corporativos de missão crítica. Otimização profunda de queries em bases de dados relacionais e atuação em regime de plantão gerenciando e escalando serviços da AWS. Utilizava C#, SQL Server, ASP.NET, AngularJS, Javascript, Totvs Fluig e ferramentas Cloud AWS (EC2, Load Balancer, Auto Scaling).
+                                        </p>
+                                    </div>                                    
+                                </section>
 
-				<ul>
-					<li class="skill">
-						<dt>desenvolvedor.<span style="color: #14bdee">io</span></dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificado/bc1e2e2f-ccdb-45b1-9212-06a0d31c8b66" target="_blank">
-									<span>Fullstack Developer</span>
-								</a>
-							</div>
-						</div>
+                                {/* Competências Técnicas posicionadas estrategicamente após a experiência e com termos otimizados para ATS */}
+                                <section>
+                                    <h3 className="uppercase border-b border-black font-black text-[10px] mb-1">Competências Técnicas</h3>
+                                    <div className="flex flex-wrap gap-1">
+                                        {skills.map(skill => (
+                                            <span key={skill} className="bg-white text-black px-1 py-0 text-[7px] font-bold border border-gray-300 uppercase leading-none">{skill}</span>
+                                        ))}
+                                    </div>
+                                </section>
 
+                                <section>
+                                    <h3 className="uppercase border-b border-black font-black text-[10px] mb-1 print:pt-2">Projetos em IA & Inovação (Labs)</h3>
+                                    <div className="grid grid-cols-1 gap-y-1.5">
+                                        <div>
+                                            <div className="flex justify-between items-baseline">
+                                                <span className="text-[9px] font-black uppercase">Assistente "O Que é Isso?" (Computer Vision)</span>
+                                                <a href="https://github.com/phillrog/assistente-o-que-e-isso-ia" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">github.com/phillrog/assistente-o-que-e-isso-ia</a>
+                                            </div>
+                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
+                                                Plataforma educativa multimodal que utiliza YOLOv8 para garantir a privacidade local (detecção de faces) antes de processar dados via Google Gemini. Implementa um protocolo de comunicação estruturado com tags customizadas e síntese de voz (gTTS).
+                                            </p>
+                                        </div>
 
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificado/12d4f27c-4f5c-47d2-bcb2-d5ec4d370a68" target="_blank">
-									<span>Formação ASP.NET Core Expert</span>
-								</a>
-							</div>
-						</div>
+                                        <div>
+                                            <div className="flex justify-between items-baseline">
+                                                <span className="text-[9px] font-black uppercase">IA Resume Expert (Prompt Engineering)</span>
+                                                <a href="https://github.com/phillrog/assistente-de-curriculo" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">github.com/phillrog/assistente-de-curriculo</a>
+                                            </div>
+                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
+                                                Sistema de mentoria de carreira que utiliza Few-Shot Prompting e delimitadores XML para análise de aderência (Match Score). Aplica metodologias de mercado como o Método STAR e otimização para sistemas ATS.
+                                            </p>
+                                        </div>
 
+                                        <div>
+                                            <div className="flex justify-between items-baseline">
+                                                <span className="text-[9px] font-black uppercase">ProNail: IA Conversacional (RAG & Serverless)</span>
+                                                <a href="https://github.com/phillrog/desafio-ia" target="_blank" className="text-[8px] underline italic text-blue-700 font-bold">github.com/phillrog/desafio-ia</a>
+                                            </div>
+                                            <p className="text-[8px] leading-tight text-gray-700 text-justify">
+                                                Ecossistema Serverless na AWS (Lambda, DynamoDB, Cognito) que utiliza Function Calling para agendamentos via chat. Implementa técnicas de RAG para consulta de disponibilidade de profissionais em tempo real.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </section>
 
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificado/a2aac0a0-d858-4a36-98a8-29d54aeb51f9" target="_blank">
-									<span>Formação Front-End Angular Expert</span>
-								</a>
-							</div>
-						</div>
+                            <div className="grid grid-cols-12 gap-2">
+                                <div className="col-span-12 md:col-span-3 print:col-span-3">
+                                    <section>
+                                        <h3 className="uppercase border-b border-black font-black text-[10px] mb-0.5">Formação</h3>
+                                        <div className="text-[9px] font-bold uppercase leading-tight">
+                                            <p className="leading-tight text-gray-800 normal-case">Análise e Desenvolvimento de Sistemas</p>
+                                            <p className="leading-tight text-gray-800 normal-case">Centro Universitário Moura Lacerda</p>
+                                            <p className="leading-tight text-gray-800 normal-case">2013 - 2015</p>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div className="col-span-12 md:col-span-9 print:col-span-9">
+                                    <section>
+                                        <h3 className="uppercase border-b border-black font-black text-[8px] mb-0.5">Certificações</h3>
+                                        <div className="grid grid-cols-4 gap-x-2 text-[6.5px] font-bold leading-tight">
+                                            <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
+                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">desenvolvedor.io</p>
+                                                <div className="flex flex-col underline italic text-gray-600 normal-case">
+                                                    <a href="https://desenvolvedor.io/certificado/bc1e2e2f-ccdb-45b1-9212-06a0d31c8b66" target="_blank">Fullstack Developer</a>
+												    <a href="https://desenvolvedor.io/certificado/12d4f27c-4f5c-47d2-bcb2-d5ec4d370a68" target="_blank">ASP.NET Core Expert</a>
+												    <a href="https://desenvolvedor.io/certificado/a2aac0a0-d858-4a36-98a8-29d54aeb51f9" target="_blank">Angular Expert</a>
+												    <a href="https://desenvolvedor.io/certificados/b61783a7-7362-4d79-96c9-00b09a15c9ae" target="_blank">Arquiteto de Software</a>
+                                                    <a href="https://desenvolvedor.io/certificados/84f7f8bd-1d79-4294-8159-b29032cffc67" target="_blank">ASP.NET MVC 5 Expert</a>
+                                                </div>
+                                            </div>
+                                            <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
+                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Udemy</p>
+                                                <div className="flex flex-col underline italic text-gray-600 normal-case">
+                                                    <a href="https://ude.my/UC-49254688-1a17-4ccf-85ea-c953e31b9ab5" target="_blank">DevOps - Mão na massa!</a>
+                                                    <a href="https://ude.my/UC-3b876b1e-22dc-43fc-a22e-5c17bf51bbd1/" target="_blank">Clean Architecture Essencial</a>
+                                                    <a href="https://ude.my/UC-1b9c4a42-f4e2-4cd7-b39f-c6b15dc53b03" target="_blank">Princípios SOLID na prática</a>
+                                                    <a href="https://www.udemy.com/certificate/UC-6c7d7f69-e26e-4f71-8615-10bb0ddd83a0/" target="_blank">Kubernetes Orquestração</a>
+                                                    <a href="https://ude.my/UC-83cbad82-6cca-4ac0-8ed0-2fb5d5832555" target="_blank">Docker para Desenvolvedores</a>
+                                                </div>
+                                            </div>
+                                            <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
+                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">The Cloud Bootcamp</p>
+                                                <div className="flex flex-col underline italic text-gray-600 normal-case">
+                                                    <a href="https://drive.google.com/file/d/1W-KzEDZNJZ-KzIpjnr79NDoTtS4_O38B/view?usp=sharing" target="_blank">AI Cloud - MultiCloud/DevOps</a>
+												    <a href="https://drive.google.com/file/d/1H8nGGvjmrCZDg35tDjCZWmnun_0GWBZT/view?usp=sharing" target="_blank">Google Cloud Platform</a>
+												    <a href="https://drive.google.com/file/d/15B9J43OyiqJYdVW7O-igmI6bBEH8-nHk/view?usp=sharing" target="_blank">Oracle Cloud (OCI)</a>
+												    <a href="https://drive.google.com/file/d/1OdoNWhupnJveUkS1licYhdxZaZnVzAWN/view?usp=sharing" target="_blank">Microsoft Azure</a>
+												    <a href="https://drive.google.com/file/d/1E_oc0063l29BjtAVD5EKRYtkD7aM8T3U/view" target="_blank">AWS Cloud</a>
+                                                </div>
+                                            </div>
+                                            <div className="col-span-12 md:col-span-1 print:col-span-1 mb-1 print:mb-0">
+                                                <p className="uppercase border-b border-gray-200 text-gray-500 mb-0.5 text-[8px]">Especializados</p>
+                                                <div className="flex flex-col underline italic text-gray-600 normal-case">
+                                                    <a href="https://1drv.ms/b/s!AupKNLsJeRIjiFJh1foq-uYMjEnd?e=55ErX3" target="_blank">gaGO.io: Cloud Native</a>
+                                                    <a href="https://bit.ly/3K8PnYz" target="_blank">gaGO.io: RabbitMQ</a>
+                                                    <a href="https://sgce.fundacaofat.org.br/sgce/validar/C08D9107" target="_blank">FUNDAÇÃO FAT: IA Google</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </motion.div>
+            );
+        };
 
+        const ChatBot = () => {            
+            const openChatBox = (e) => {
+                if (window.openChatBox) {
+                    window.openChatBox(e);
+                } 
+            };
 
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificados/b61783a7-7362-4d79-96c9-00b09a15c9ae" target="_blank">
-									<span>Formação Arquiteto de Software</span>
-								</a>
-							</div>
-						</div>
+            return (
+                <React.Fragment>
+                    <div className="hidden md:flex box" id="box">
+                        <div className="title-header">
+                            <span className="status">Online agora</span>
+                            <div style={{ fontSize: '18px', marginTop: '5px' }}>
+                                <i className="fa fa-user-circle" style={{ color: '#2563eb' }}></i>
+                                <strong> Phill</strong>
+                            </div>
+                            <span style={{ fontSize: '12px', color: '#6b7280', fontWeight: 'normal' }}>
+                                Assistente virtual inteligente
+                            </span>
+                        </div>
 
+                        <div id="chat-messages"></div>
 
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://desenvolvedor.io/certificados/84f7f8bd-1d79-4294-8159-b29032cffc67" target="_blank">
-									<span>Formação ASP.NET MVC 5 Expert</span>
-								</a>
-							</div>
-						</div>
+                        <div className="chat-footer">
+                            <input type="text" id="user-input" placeholder="Pergunte sobre minha experiência..." />
+                            <button id="enviar-button" className="btn-enviar">Conversar com Phill</button>
+                            <div id="api-duration" style={{ fontSize: '9px', color: '#ccc', textAlign: 'center', marginTop: '8px' }}></div>
+                            <select id="model-select" style={{ display: 'none' }}></select>
+                            <pre id="usage-metadata" style={{ display: 'none' }}></pre>
+                        </div>
+                    </div>
 
-					</li>
-					<li class="skill">
-						<dt><img src="img/logo-udemy.png" alt="Udemy" width="60" height="24"></dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://ude.my/UC-49254688-1a17-4ccf-85ea-c953e31b9ab5" target="_blank">
-									<span>DevOps - Mão na massa!</span>
-								</a>
-							</div>
-						</div>
-						
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://ude.my/UC-3b876b1e-22dc-43fc-a22e-5c17bf51bbd1/" target="_blank">
-									<span>Clean Architecture Essencial - ASP .NET Core com C#</span>
-								</a>
-							</div>
-						</div>
-						
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://ude.my/UC-1b9c4a42-f4e2-4cd7-b39f-c6b15dc53b03" target="_blank">
-									<span>C# - Aplicando Princípios SOLID na prática</span>
-								</a>
-							</div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://www.udemy.com/certificate/UC-6c7d7f69-e26e-4f71-8615-10bb0ddd83a0/" target="_blank">
-									<span>Orquestração de Containers com Kubernetes</span>
-								</a>
-							</div>
-						</div>
+                    <div
+                        className="hidden md:flex Zmxtcf e5IPTd"
+                        style={{
+                            position: 'fixed',
+                            right: '36px',
+                            bottom: '36px',
+                            cursor: 'pointer',
+                            zIndex: 9999
+                        }}
+                        onClick={openChatBox}
+                    >
+                        <div className="VOYwb wUn25c">
+                            <div className="lWI5Pb"></div>
+                        </div>
+                        <span data-is-tooltip-wrapper="true">
+                            <button title="Click aqui para conversar com o Phill" className="VYBDae-JX-I VYBDae-JX-I-ql-ay5-ays XyWBof">
+                                <span className="OiePBf-zPjgPe VYBDae-JX-UHGRz"></span>
+                                <span className="bHC-Q"></span>
+                                <span aria-hidden="true" className="VYBDae-JX-ank-Rtc0Jf">
+                                    <span className="notranslate bzc-ank" aria-hidden="true">
+                                        <svg focusable="false" viewBox="0 -960 960 960" height="28" width="28" className="EiVpKc aoH">
+                                            <path d="M480-80q2,0 2-2q0-82 31-154t85-126t126-85t154-31q2,0 2-2t-2-2q-82,0-154-31T598-598T513-724T482-878q0-2-2-2t-2,2q0,82-31,154T362-598T236-513T82-482q-2,0-2,2t2,2q82,0 154,31t126,85t85,126T478-82q0,2 2,2Z"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <div className="VYBDae-JX-ano"></div>
+                            </button>
+                        </span>
+                    </div>
+                </React.Fragment>
+            );
+        };
 
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://ude.my/UC-83cbad82-6cca-4ac0-8ed0-2fb5d5832555" target="_blank">
-									<span>Docker para Desenvolvedores (com Docker Swarm e Kubernetes)</span>
-								</a>
-							</div>
-						</div>
+        const App = () => {
+            const [loading, setLoading] = useState(true);
+            
+            useEffect(() => {
+                if (!loading) {
+                    const loadScripts = async () => {
+                        const jq = document.createElement("script");
+                        jq.src = "https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js";
+                        jq.async = false;
+                        document.body.appendChild(jq);
 
+                        jq.onload = () => {
+                            const gemini = document.createElement("script");
+                            gemini.src = "js/gemini.js";
+                            gemini.type = "module";
+                            document.body.appendChild(gemini);
 
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://www.udemy.com/certificate/UC-7f05dc3e-6abc-4028-9280-742ea6a442c1/" target="_blank">
-									<span>DevOps Ninja: Docker, Kubernetes e Rancher</span>
-								</a>
-							</div>
-						</div>
+                            const box = document.createElement("script");
+                            box.src = "js/box.js";
+                            document.body.appendChild(box);
 
-					</li>
-					<li class="skill">
-						<dt><img src="img/logo-gago3-branca.png" width="60" height="24" alt="gaGO.io" id="logo"></dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://1drv.ms/b/s!AupKNLsJeRIjiFJh1foq-uYMjEnd?e=55ErX3" target="_blank">
-									<span>Cloud Native .NET</span>
-								</a>								
-								
-							</div>							
-						</div>
+                            var limparIntervalo = setInterval(() => {
+                                if (window.gemini) {
+                                    window.gemini.initChat();
+                                    
+                                    const btn = document.getElementById("enviar-button");
+                                    const input = document.getElementById("user-input");
+                                    
+                                    if (btn) btn.onclick = window.gemini.sendMessage;
+                                    if (input) {
+                                        input.onkeypress = (e) => {
+                                            if (e.key === "Enter") window.gemini.sendMessage();
+                                        };
+                                    }
+                                    clearInterval(limparIntervalo);
+                                }
+                            }, 1000);
+                        };
+                    };
+                    loadScripts();
+                }
+            }, [loading]);
 
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>				
-							<div class="text">
-								
-								<a href="https://bit.ly/3K8PnYz" target="_blank">
-									<span>RabbitMQ para Aplicações .NET</span>
-								</a>
-								
-							</div>
-						</div>					
-					</li>
-					<li class="skill">
-						<dt>The Cloud Bootcamp</dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/1W-KzEDZNJZ-KzIpjnr79NDoTtS4_O38B/view?usp=sharing" target="_blank">
-									<span>AI Cloud - IA com MultiCloud & DevOps</span>
-								</a>
-							</div>
-						</div>
+            return (
+                <AnimatePresence mode="wait">
+                    {loading ? (
+                        <SplashScreen key="splash" onComplete={() => setLoading(false)} />
+                    ) : (
+                        <>
+                            <ResumeContent key="resume" />                            
+                        </>
+                    )}
+                </AnimatePresence>
+            );
+        };
 
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/1H8nGGvjmrCZDg35tDjCZWmnun_0GWBZT/view?usp=sharing" target="_blank">
-									<span>Google Cloud Platform</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/15B9J43OyiqJYdVW7O-igmI6bBEH8-nHk/view?usp=sharing" target="_blank">
-									<span>Oracle Cloud Infrastructure (OCI)</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/1OdoNWhupnJveUkS1licYhdxZaZnVzAWN/view?usp=sharing" target="_blank">
-									<span>Microsoft Azure</span>
-								</a>
-							</div>
-						</div>
-
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://drive.google.com/file/d/1E_oc0063l29BjtAVD5EKRYtkD7aM8T3U/view" target="_blank">
-									<span>Amazon Web Services (AWS)</span>
-								</a>
-							</div>
-						</div>
-					</li>
-					<li class="skill">
-						<dt>FUNDAÇÃO FAT</dt>
-						<div class="progress">
-							<div class="determinate" style="width: 0%;"></div>
-						</div>
-						<div class="certification align-baseline">
-							<div class="icon">
-								<i class="fa fa-certificate"></i>
-							</div>
-							<div class="text">
-								<a href="https://sgce.fundacaofat.org.br/sgce/validar/C08D9107" target="_blank">
-									<span>IA- GOOGLE CLOUD</span>
-								</a>
-							</div>
-						</div>
-
-					</li>					
-				</ul>
-			</section>
-		</div>
-		<div class="rightCol">
-
-			<section>
-				<div class="title">
-					<h2>Phillipe Roger Souza</h2>
-					<div>Fullstack Developer .NET</div>
-				</div>
-			</section>
-            			
-			<section class="experience">
-				<div class="section-headline">Perfil Profissional</div>
-
-				<div class="block">
-					<div class="headline">
-						<span class="cargo"># Resumo - </span> </span><span class="empresa">Em busca de um novo desafio.</span>
-						<div class="subheadline">Início imediato</div>
-					</div>
-					<p class="info"  >
-						Desenvolvedor Full Stack Sênior (C#/.NET Core e Angular), focado na entrega de soluções de software de ponta a ponta. Experiência profunda na construção de sistemas escaláveis e resilientes, aplicando Domain-Driven Design (DDD), CQRS e Microsserviços de forma estratégica. Atuação em projetos de grande impacto, como sustentação, transformação digital e inovação (incluindo contribuições para projetos premiados). Experiência prática com DevOps, CI/CD, containerização (Docker, Kubernetes) e implantação em ambientes Cloud.
-					</p>
-				</div>
-
-			<section class="experience">
-				<div class="section-headline">Histórico Profissional</div>
-
-				<div class="block">
-					<div class="headline">
-						<span class="cargo"># Analista de Sistemas Sênior - </span><span class="empresa">Grupo Colorado ( Orlândia - SP )</span>
-						<div class="subheadline">Agosto de 2024 - Novembro de 2025</div>
-					</div>
-					<p class="info">
-						Implementei soluções inovadoras como uma aplicação web para agendamento de ações automatizadas (relatórios, notificações). Essa arquitetura, utilizando Hangfire, reduziu significativamente o trabalho manual. Atuação na sustentação e evolução de sistemas complexos (incluindo legados como Genexus, sistemas de leitura de balança de bag e outras aplicações VB.NET). Desenvolvimento fullstack de soluções para o ERP e relatórios no QLIK, com foco em regras do negócio (Agrícola, Equipamentos,  Mobile B2B, Pessoas, dentre outras áreas), aplicando Clean Architecture, princípios SOLID e boas práticas de desenvolvimento.
-					</p>
-				</div>
-                
-				<div class="block">
-					<div class="headline">
-						<span class="cargo"># Analista de Sistemas Sênior - </span><span class="empresa">Confitec ( São Paulo - SP ) </span>
-						<div class="subheadline">Agosto de 2021 - Julho de 2024</div>
-					</div>
-					<p class="info">
-						Executei o ciclo de desenvolvimento, alternando entre a manutenção e a evolução de novas features para produtos essenciais (Projur, iRisk Portal e Aplicativo).
-						Atuação direta com o cliente e a gestão para diagnóstico e solução de problemas de negócio urgentes, assegurando a estabilidade e a satisfação do cliente.
-
-						Implementei e configurei pipelines CI/CD para o monolito IIS e definia padrões de código através de Code Reviews e Pair Programming, elevando a qualidade técnica da equipe.
-
-						Fui o desenvolvedor-chave no Projeto Inovador de 2024 (1º Lugar) e responsável por interagir ativamente com Analistas de Negócio para garantir o alinhamento de requisitos.
-
-						Atuação em arquitetura baseada em CQRS e conceitos de DDD, utilizando essa separação de leitura/escrita para garantir a manutenção simplificada e a estabilidade de sistemas complexos.
-					</p>
-				</div>
-
-				<div class="block">
-					<div class="headline">
-						<span class="cargo"># Analista de Sistemas .NET - </span><span class="empresa">Wappa Brasil ( São Paulo - SP ) </span>
-						<div class="subheadline">Abril de 2021 - Agosto de 2021</div>
-					</div>
-					<p class="info">
-						Atuação como desenvolvedor em ambiente de microsserviços e multi-cloud (AWS/GCP), focado em sustentação, bugs e desenvolvimento de features em módulos de alto volume de tráfego. Proficiência em ferramentas de infraestrutura, utilizando AWS, Cloud Functions (cache/processamento) e APIs Google para funcionalidades do app. Otimização do diagnóstico de incidentes via AWS CloudWatch e Jaeger (Tracing de requisições). Realizei ajustes e atualizações diretas nos módulos passageiro, motorista, notificação, portal administração, portal backoffice, relatório e no aplicativo mobile android.
-					</p>
-				</div>
-
-				<div class="block">
-					<div class="headline"><span class="cargo"># Desenvolvedor PL 4 - </span><span class="empresa">Murilo
-							Amaru Gomes - MAGIT Soluções e Terceirização de TI ( Ribeirão Preto - SP ) </span>
-						<div class="subheadline">Outubro de 2020 - Março de 2021</div>
-					</div>
-					<p class="info">
-						Desenvolvimento do Módulo Financeiro do cliente Rodonaves, utilizando Asp.Net Core, WEB API, REST, RabbitMQ, Angular 7, e Material Design. A arquitetura dos sistemas mesclava Onion e N camadas, implementando conceitos de DDD.
-
-						Desenvolvimento e manutenção de portais e APIs do cliente MyCap, utilizando Asp Net MVC, Asp.Net Core, WEB API, REST Angular 7, Node, e Windows Service.
-
-						Trabalho em projetos com arquitetura monolítica, Onion, MVC e microserviços, aplicando princípios SOLID e boas práticas de programação.
-					</p>
-				</div>
-				
-			</section>
-
-			<section class="education">
-				<div class="section-headline">Formação Acadêmica</div>
-				<div class="block">
-					<div class="headline"><span class="cargo"># Análise e Desenvolvimento de Sistemas</span></div>
-					<div class="subheadline">
-						Janeiro de 2013 - Junho de 2015 - <span class="empresa">Centro Universitário Moura
-							Lacerda</span>, Ribeirão Preto, SP
-					</div>
-				</div>
-			</section>
-		</div>
-
-	</main>
-
-	<div class="box" id="box">
-	  <div class="title-header">
-		<span class="status">Online agora</span>
-		<div style="font-size: 18px; margin-top: 5px;">
-		  <i class="fa fa-user-circle" style="color: #2563eb;"></i> 
-		  <strong>Phill</strong>
-		</div>
-		<span style="font-size: 12px; color: #6b7280; font-weight: normal;">Assistente virtual inteligente</span>
-	  </div>
-
-	  <div id="chat-messages">
-		</div>
-
-	  <div class="chat-footer">
-		<input type="text" id="user-input" placeholder="Pergunte sobre minha experiência...">
-		<button id="enviar-button" class="btn-enviar">Conversar com Phill</button>
-		
-		<div id="api-duration" style="font-size: 9px; color: #ccc; text-align: center; margin-top: 8px;"></div>
-		<select id="model-select" style="display:none"></select> <pre id="usage-metadata" style="display:none"></pre>
-	  </div>
-	</div>
-    
-	<div class="Zmxtcf e5IPTd" jscontroller="DgIhze" style="
-    
-		position: fixed;
-		right: 36px;
-		bottom: 36px;
-		
-		cursor: pointer;" jsaction="JIbuQc:hvFYob;dduq4c:PrY1nf;BIkEBc:foYxRb;LkyfYb:EFVbM;JXMate:Ego55c;qzfiwe:vFwaKf;oqYoCb:.CLIENT;Db3vsd:.CLIENT" jslog="194062; u014N:xr6bB,cOuCgd,Kr2w4b; dYFj7e:true; 66:WzRd">
-	  <div class="VOYwb wUn25c">
-		<div class="lWI5Pb"></div>
-	  </div>
-	  <span data-is-tooltip-wrapper="true">
-		<button title="Click aqui para conversar com o Phill" onclick="openChatBox(event)" class="VYBDae-JX-I VYBDae-JX-I-ql-ay5-ays XyWBof  " jscontroller="PIVayb" jsaction="click:h5M12e; clickmod:h5M12e;pointerdown:FEiYhc;pointerup:mF5Elf;pointerenter:EX0mI;pointerleave:vpvbp;pointercancel:xyn4sd;contextmenu:xexox;focus:h06R8; blur:zjh6rb;mlnRJb:fLiPzd;" data-idom-class="XyWBof" data-use-native-focus-logic="true" aria-label="Pedir para Gemini" data-tooltip-enabled="true" data-tooltip-id="tt-c28" jslog="204391;track:click,hover;u014N:cOuCgd,ZmdkE;">
-		  <span class="OiePBf-zPjgPe VYBDae-JX-UHGRz"></span>
-		  <span class="bHC-Q" jscontroller="LBaJxb" jsname="m9ZlFb"></span>
-		  <span jsname="S5tZuc" aria-hidden="true" class="VYBDae-JX-ank-Rtc0Jf">
-			<span class="notranslate bzc-ank" aria-hidden="true">
-			  <svg focusable="false" viewBox="0 -960 960 960" height="28" width="28" class="EiVpKc aoH">
-				<path d="M480-80q2,0 2-2q0-82 31-154t85-126t126-85t154-31q2,0 2-2t-2-2q-82,0-154-31T598-598T513-724T482-878q0-2-2-2t-2,2q0,82-31,154T362-598T236-513T82-482q-2,0-2,2t2,2q82,0 154,31t126,85t85,126T478-82q0,2 2,2Z"></path>
-			  </svg>
-			</span>
-		  </span>
-		  <div class="VYBDae-JX-ano"></div>
-		</button>
-
-	  </span>
-	</div>
-    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
-    <script type="module" src="js/gemini.js" defer></script>	
-    <script src="js/box.js" defer></script>
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
